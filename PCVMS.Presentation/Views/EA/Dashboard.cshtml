@@ -1,0 +1,555 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+}
+
+@model PCVMS.Model.Web.DashboardModel
+    
+<div class="tab-content">
+    <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-header  bg-happy-green">
+                        <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                        <h1>@Localizer["expropriation authority"]</h1>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-primary border-primary card">
+                    <div class="widget-chat-wrapper-outer">
+                        <div class="widget-chart-content">
+                            <div class="widget-title opacity-5 text-uppercase">@Localizer["expropriation authority"]</div>
+                            <div class="widget-numbers mt-2 fsize-3 mb-0 w-100">
+                                <div class="widget-chart-flex align-items-center">
+                                    <div>
+                                        <span class="opacity-10 text-danger pr-2">
+                                            <i class="fa fa-angle-up"></i>
+                                        </span>
+                                        1,00,000.000 OMR
+                                        <div class="card-header-title" style="font-size: small;">@Localizer["payment requested"]</div>
+                                    </div>
+                                    <div class="widget-title ml-auto font-size-lg font-weight-normal text-muted">
+                                        <div class="circle-progress circle-progress-gradient-alt-sm d-inline-block">
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-danger border-danger card">
+                    <div class="widget-chat-wrapper-outer">
+                        <div class="widget-chart-content">
+                            <div class="widget-title opacity-5 text-uppercase">@Localizer["sidemenu7"]</div>
+                            <div class="widget-numbers mt-2 fsize-3 mb-0 w-100">
+                                <div class="widget-chart-flex align-items-center">
+                                    <div>
+                                        <span class="opacity-10 text-success pr-2">
+                                            <i class="fa fa-angle-down"></i>
+                                        </span>
+                                        65,000.000 OMR
+                                        <div class="card-header-title" style="font-size: small;">@Localizer["payment received"]</div>
+                                    </div>
+                                    <div class="widget-title ml-auto font-size-lg font-weight-normal text-muted">
+                                        <div class="circle-progress circle-progress-success-sm d-inline-block">
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-warning border-warning card">
+                    <div class="widget-chat-wrapper-outer">
+                        <div class="widget-chart-content">
+                            <div class="widget-title opacity-5 text-uppercase">@Localizer["citizen"]</div>
+                            <div class="widget-numbers mt-2 fsize-3 mb-0 w-100">
+                                <div class="widget-chart-flex align-items-center">
+                                    <div>
+                                        <span class="opacity-10 text-success pr-2">
+                                            <i class="fa fa-angle-down"></i>
+                                        </span>
+                                        50,000.000 OMR
+                                        <div class="card-header-title" style="font-size: small;">@Localizer["payment collected"]</div>
+                                    </div>
+                                    <div class="widget-title ml-auto font-size-lg font-weight-normal text-muted">
+                                        <div class="circle-progress circle-progress-warning-sm d-inline-block">
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="widget-chart widget-chart2 text-left mb-3 card-btm-border card-shadow-success border-success card">
+                    <div class="widget-chat-wrapper-outer">
+                        <div class="widget-chart-content">
+                            <div class="widget-title opacity-5 text-uppercase">@Localizer["citizen"]</div>
+                            <div class="widget-numbers mt-2 fsize-3 mb-0 w-100">
+                                <div class="widget-chart-flex align-items-center">
+                                    <div>
+                                        <span class="opacity-10 text-warning pr-2">
+                                            <i class="fa fa-angle-down"></i>
+                                        </span>
+                                        15,000.000 OMR
+                                        <div class="card-header-title" style="font-size: small;">@Localizer["payment with pcvd"]</div>
+                                    </div>
+                                    <div class="widget-title ml-auto font-size-lg font-weight-normal text-muted">
+                                        <div class="circle-progress circle-progress-success-sm d-inline-block">
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-header-tab card-header-tab-animation card-header">
+                        <div class="card-header-title">
+                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                            @Localizer["payment requested to ea"]
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center"> @Localizer["project name"]</th>
+                                    <th class="text-center">@Localizer["expropriation authority"]</th>
+                                    <th class="text-center">@Localizer["amount"]</th>
+                                    <th class="text-center">@Localizer["date"]</th>
+                                    <th class="text-center">@Localizer["actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">#345</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["batna road"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of transport"]</td>
+                                    <td class="text-center">20,000.000</td>
+                                    <td class="text-center">7/14/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment1" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">#346</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["rasal jinz tortile resort"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of tourism"]</td>
+                                    <td class="text-center">25,000.000</td>
+                                    <td class="text-center">5/5/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment2" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-header-tab card-header-tab-animation card-header">
+                        <div class="card-header-title">
+                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                            @Localizer["payment received from ea"]
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center"> @Localizer["project name"]</th>
+                                    <th class="text-center">@Localizer["expropriation authority"]</th>
+                                    <th class="text-center">@Localizer["amount"]</th>
+                                    <th class="text-center">@Localizer["date"]</th>
+                                    <th class="text-center">@Localizer["actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">#345</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["batna road"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of transport"]</td>
+                                    <td class="text-center">10,000.000</td>
+                                    <td class="text-center">12/12/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment1" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">#346</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["rasal jinz tortile resort"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of tourism"]</td>
+                                    <td class="text-center">15,000.000</td>
+                                    <td class="text-center">10/7/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment2" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-header-tab card-header-tab-animation card-header">
+                        <div class="card-header-title">
+                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                            @Localizer["attested decision"]
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center"> @Localizer["project name"]</th>
+                                    <th class="text-center">@Localizer["expropriation authority"]</th>
+                                    <th class="text-center">@Localizer["amount"]</th>
+                                    <th class="text-center">@Localizer["date"]</th>
+                                    <th class="text-center">@Localizer["actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">#345</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["batna road"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of transport"]</td>
+                                    <td class="text-center">20,000.000</td>
+                                    <td class="text-center">7/14/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment1" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">#346</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["rasal jinz tortile resort"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of tourism"]</td>
+                                    <td class="text-center">25,000.000</td>
+                                    <td class="text-center">5/5/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment2" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-header-tab card-header-tab-animation card-header">
+                        <div class="card-header-title">
+                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                            @Localizer["payment collected by citizen"]
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center"> @Localizer["project name"]</th>
+                                    <th class="text-center">@Localizer["citizen name"]</th>
+                                    <th class="text-center">@Localizer["amount"]</th>
+                                    <th class="text-center">@Localizer["date"]</th>
+                                    <th class="text-center">@Localizer["actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">#345</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["batna road"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["citizen name"] 1</td>
+                                    <td class="text-center">10,000.000</td>
+                                    <td class="text-center">12/12/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpaymentpaid1" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">#346</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["rasal jinz tortile resort"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["citizen name"] 2</td>
+                                    <td class="text-center">10,000.000</td>
+                                    <td class="text-center">10/7/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpaymentpaid2" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-header-tab card-header-tab-animation card-header">
+                        <div class="card-header-title">
+                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                            @Localizer["decision returned"]
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center"> @Localizer["project name"]</th>
+                                    <th class="text-center">@Localizer["expropriation authority"]</th>
+                                    <th class="text-center">@Localizer["amount"]</th>
+                                    <th class="text-center">@Localizer["date"]</th>
+                                    <th class="text-center">@Localizer["actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">#345</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["batna road"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of transport"]</td>
+                                    <td class="text-center">20,000.000</td>
+                                    <td class="text-center">7/14/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment1" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">#346</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["rasal jinz tortile resort"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["ministry of tourism"]</td>
+                                    <td class="text-center">25,000.000</td>
+                                    <td class="text-center">5/5/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpayment2" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-header-tab card-header-tab-animation card-header">
+                        <div class="card-header-title">
+                            <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                            @Localizer["payment cheque expired"]
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center"> @Localizer["project name"]</th>
+                                    <th class="text-center">@Localizer["citizen name"]</th>
+                                    <th class="text-center">@Localizer["amount"]</th>
+                                    <th class="text-center">@Localizer["cheque"]</th>
+                                    <th class="text-center">@Localizer["expired date"]</th>
+                                    <th class="text-center">@Localizer["actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">#345</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["batna road"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["citizen name"] 1</td>
+                                    <td class="text-center">10,000.000</td>
+                                    <td class="text-center">4324234</td>
+                                    <td class="text-center">12/12/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpaymentpaid1" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">#346</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">@Localizer["rasal jinz tortile resort"] 1</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@Localizer["citizen name"] 2</td>
+                                    <td class="text-center">10,000.000</td>
+                                    <td class="text-center">45341233</td>
+                                    <td class="text-center">10/7/2020</td>
+                                    <td class="text-center">
+                                        <button id="showpaymentpaid2" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-more btn-icon-wrapper"> </i>@Localizer["details"]</button>
+
+                                    </td>
+                                </tr>                              
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

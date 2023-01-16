@@ -1,0 +1,347 @@
+﻿@using System.Threading;
+@using System.Threading.Tasks;
+@using PCVMS.Presentation.Helpers;
+@using PCVM.Web.Helpers;
+@inject ICacheHelper obj;
+@{
+    var browserLang = Thread.CurrentThread.CurrentCulture.Name;
+    var dir = "";
+    if (browserLang.ToLower() == "en-us")
+    {
+        dir = "ltr";
+    }
+    else
+    {
+        dir = "rtl";
+    }
+    var Localizer = await obj.GetAllResource();
+
+}
+
+<!DOCTYPE html>
+<html dir="@dir" lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fertilizer & Pesticide System - MAFWR.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="MAFWR-Fertilizer & Pesticide System">
+
+    <!-- Latest compiled and minified CSS -->
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">*@
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css">
+
+    <!--IDOT Project Static Files-->
+    <link rel="stylesheet" type="text/css" href="~/css/gis_style.css">
+
+    <link href="~/css/Custom.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="~/css/ol-ext.css">
+
+
+    @if (browserLang.ToLower() == "en-us")
+    {
+        <link href="~/css/main.87c0748b313a1dda75f5.css" rel="stylesheet" />
+        <link href="~/css/Custom-en.css" rel="stylesheet" />
+    }
+    else
+
+    {
+        <link href="~/css/main.ca0da237c3c8d04a414c.css" rel="stylesheet" />
+        <link href="~/css/Custom-ar.css" rel="stylesheet" />
+    }
+
+    <link href="~/css/datepicker.css" rel="stylesheet">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <script src="~/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="~/js/jquery.smartWizard.js"></script>
+    <script src="~/js/Common.js"></script>
+    <script src="~/js/jquery.blockUI.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"
+            crossorigin="anonymous"></script>
+
+    <!-- Popper JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+
+
+
+    @if (browserLang.ToLower() == "en-us")
+    {
+        <script type="text/javascript" src="~/js/main.87c0748b313a1dda75f5.js"></script>
+    }
+    else
+    {
+        <script type="text/javascript" src="~/js/main.ca0da237c3c8d04a414c.js"></script>
+    }
+
+    <script type="text/javascript" src="~/js/datepicker.js"></script>
+
+    <script type="module" src="~/js/app.js"></script>
+
+    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <link href="~/css/chosen.css" rel="stylesheet" />
+    <script src="~/js/chosen.jquery.min.js"></script>
+
+
+
+    <style>
+        .pop-outer {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+        }
+
+        .pop-inner {
+            background-color: #fff;
+            width: max-content;
+            padding: 25px;
+            margin: 5% auto;
+        }
+
+        table tr.active {
+            background: #00ff90 !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".close").click(function () {
+                $(".pop-outer").fadeOut("slow");
+            });
+        });
+    </script>
+
+
+
+</head>
+<body>
+
+    <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
+        <div class="app-header header-shadow bg-moi-blue sidebar-text-light">
+            <div class="header__pane ml-auto">
+                <div>
+                    <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-success btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <div class="app-header__logo_moi">
+
+                        <a href="~/Hierarchy/index">
+                            <div class="logo-src"></div>
+                            </a>
+                            <div>
+                                <h1>@Localizer["system_name"]</h1>
+                            </div>
+                    </div>
+                </div>
+                <div class="app-header-right">
+                    <div class="header-dots">
+
+                        <div class="dropdown">
+                            <button type="button" data-toggle="dropdown" class="p-0 mr-2 btn btn-moi-gold">
+                                <span class="icon-wrapper icon-wrapper-alt rounded-circle">
+                                    <i class="pe-7s-global" style="font-size:2.3rem;"> </i>
+                                </span>
+                            </button>
+                            <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu dropdown-menu-right">
+
+                                <button id="LanguageUS" type="button" tabindex="0" class="dropdown-item">
+                                    <span class="mc-3 opacity-8 flag large US"></span>
+                                    English - USA
+
+                                </button>
+                                <button id="LanguageOM" type="button" tabindex="0" class="dropdown-item">
+                                    <span class="mc-3 opacity-8 flag large OM"></span>
+                                    Arabic - Oman
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left">
+                                    <div class="btn-group">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="~/css/assets/images/avatars/user.jpeg" alt="">
+                                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                        </a>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
+                                            <div class="dropdown-menu-header">
+                                                <div class="dropdown-menu-header-inner bg-moi-green">
+                                                    <div class="menu-header-image opacity-2" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
+                                                    <div class="menu-header-content text-left">
+                                                        <div class="widget-content p-0">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-left mr-3">
+                                                                    <img width="42" class="rounded-circle"
+                                                                         src="~/css/assets/images/avatars/user.jpeg"
+                                                                         alt="">
+
+                                                                </div>
+                                                                <div class="widget-content-left">
+                                                                    <div class="widget-heading">
+                                                                        @TempData.Peek("LoggedInUser")
+                                                                    </div>
+                                                                    <div class="widget-subheading opacity-8">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="widget-content-right mr-2">
+
+                                                                    <button class="btn-pill btn-shadow btn-shine btn btn-moi-gold">
+                                                                        <a href="~/Login/Logout">
+                                                                            Logout
+                                                                        </a>
+                                                                    </button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        @TempData.Peek("LoggedInUser")
+                                    </div>
+                                    <div class="widget-subheading">
+
+                                    </div>
+                                </div>
+                                <div class="widget-content-right header-user-info ml-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-btn-lg">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-main">
+            <div class="app-sidebar sidebar-shadow bg-moi-blue-light sidebar-text-light">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button" class="btn-icon btn-icon-only btn btn-success btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+                <div class="scrollbar-sidebar">
+                    <div class="app-sidebar__inner">
+                        <ul id="SideMenu0" class="vertical-nav-menu">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="app-main__outer">
+                <div class="app-main__inner">
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="customloader" class="body-block-example-3 d-none">
+        <div class="loader">
+            <div class="line-scale-pulse-out">
+                <div class="bg-success"></div>
+                <div class="bg-success"></div>
+                <div class="bg-danger"></div>
+                <div class="bg-success"></div>
+                <div class="bg-success"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;" class="pop-outer">
+        <div class="pop-inner">
+            <div class="card-header-custom  bg-danger">
+                <i class="header-icon pe-7s-ticket icon-gradient bg-white" style="margin-right: 5px;"> </i>
+               
+                <h1 style="color: white;"> @Localizer["validation_failed"]</h1>
+                <button class="close" style="padding-left: 30%;">X</button>
+            </div> 
+            <ul id="validationresult"></ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });    
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+
+</html>

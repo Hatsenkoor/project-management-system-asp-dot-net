@@ -1,0 +1,1053 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model PCVMS.Model.Web.PCVMS_Project_Model
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header  bg-moi-green-gold">
+                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                <h1>@Localizer["project management module"]</h1>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div id="smartwizard-property-draft" class="forms-wizard-vertical">
+            <ul class="forms-wizard">
+                <li>
+                    <a href="#step-12">
+                        <em><i class="header-icon pe-7s-note2 icon-gradient bg-happy-green"> </i></em><span>@Localizer["search filter"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-22">
+                        <em><i class="header-icon pe-7s-note2 icon-gradient bg-happy-green"> </i></em><span>@Localizer["project registration"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-32">
+                        <em><i class="header-icon pe-7s-user icon-gradient bg-happy-green"> </i></em><span>@Localizer["consultant registration"]</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#step-42">
+                        <em><i class="header-icon pe-7s-compass icon-gradient bg-happy-green"> </i></em><span>@Localizer["location_geometry"]</span>
+                    </a>
+                </li>               
+                <li>
+                    <a href="#step-52">
+                        <em><i class="header-icon pe-7s-check icon-gradient bg-moi-green"> </i></em><span>@Localizer["approve and project status"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-62">
+                        <em><i class="header-icon pe-7s-check icon-gradient bg-moi-green"> </i></em><span>@Localizer["project completion"]</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="form-wizard-content">
+                <div id="step-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                            @Localizer["search project"]
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-row">
+
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">@Localizer["project name"]</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                <input name="txt_stage3_vehicletype" id="RoyalDecree" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">@Localizer["project owner (ea) name"]</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                <select id="ealist" class="form-control">
+                                                    <option selected>@Localizer["select project owner"]</option>
+                                                    <option>@Localizer["ministry of housing"]</option>
+                                                    <option>@Localizer["ministry of tourism"]</option>
+                                                    <option>@Localizer["ministry of interior"]</option>
+                                                    <option>@Localizer["ministry of transport"]</option>
+                                                    <option>@Localizer["ministry of health"]</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["governorates"]</label>
+                                        <div class="input-group">
+                                            @Html.DropDownListFor(model => model.GovernetId, Model.GovernoratesList,"Select Governorate", new { @class = "form-control" })
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-block text-right card-footer">
+
+                            <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                            <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                            </button>
+                        </div>
+                        <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["id"]</th>
+                                    <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["project name"]</th>
+                                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["status"]</th>
+                                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["governorates"]</th>
+                                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center text-muted">55</td>
+                                    <td class="text-center">Batna road</td>
+                                    <td class="text-center">Edit Mode</td>
+                                    <td class="text-center">Dhofar</td>
+                                    <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-pencil" style="cursor: pointer;margin-left: 10px;" title="edit"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center text-muted">75</td>
+                                    <td class="text-center">Sur road</td>
+                                    <td class="text-center">Edit Mode</td>
+                                    <td class="text-center">Muscat</td>
+                                    <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-pencil" style="cursor: pointer;margin-left: 10px;" title="edit"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div id="step-22">
+                    <div id="smartwizard-project1-approve">
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["project information"]
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail" class=""><span class="text-danger">*</span> @Localizer["is royal decree"]?</label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleName" class=""><span class="text-danger">*</span>@Localizer["is consultant assigned?"]</label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="examplePassword" class="">@Localizer["project id"]</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+
+                                            <input class="form-control" type="checkbox" id="chk-royal-decree" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+
+                                            <input class="form-control" type="checkbox" id="chk-consultant" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+
+                                            <input name="id" id="id" placeholder="Project number here..." type="text" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="ProjectDiv" class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+
+                                @Localizer["detail information"]
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name"> @Localizer["project type"] </label>
+
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.ProjectType, Model.ProjectTypeList, "Valuation and Compensation", new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+
+                                            <label for="RoyalDecree">
+                                                @Localizer["royal decree"]
+
+                                            </label>
+                                            <div class="input-group">
+                                                <input name="txt_stage3_vehicletype" id="RoyalDecree" type="text" class="form-control" value="36/2008">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="RoyalDecreeDate">@Localizer["royal decree date"]  </label>
+                                            <div class="input-group datepicker-click-royaldecreedate">
+                                                <input name="RoyalDecreeDate" id="RoyalDecreeDate" type="text" value="24/03/2008" class="form-control" data-toggle="datepicker-trigger-royaldecreedate">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["project name"]</label>
+                                            <div class="input-group">
+                                                <input name="ProjectName" id="ProjectName" type="text" class="form-control" value="al batinah coastal road">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">@Localizer["start date"] </label>
+
+                                            <div class="input-group  datepicker-click-projectstartdate">
+                                                <input name="ProjectStartDate" id="ProjectStartDate" value="11/11/2008" type="text" class="form-control" data-toggle="datepicker-trigger-projectstartdate">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper" style="cursor: pointer;"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectEndDate">@Localizer["end date"] </label>
+
+                                            <div class="input-group">
+                                                <input name="ProjectEndDate" id="ProjectEndDate" type="text" value="11/11/2013" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleAddress">@Localizer["remark"]</label>
+
+
+                                            <div class="input-group">
+                                                <input name="txtremark" id="txtremark" value="This is a sample project" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="d-block text-right card-footer">
+
+                                <button id="ClearProject" name="ClearProject" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                <button id="SaveProject" name="SaveProject" class="btn-icon btn-shadow btn-dashed btn btn-moi-green"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+
+                            </div>
+
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["attach project document"]
+                            </div>
+
+                            <div class="card-body">
+                                <div class="form-row">
+
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2">@Localizer["please, upload royal decree for the project"]</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <img name="email" id="ProjectImage1" height="18" width="24">
+                                            <input type="hidden" id="Image1" height="18" width="24">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <input style="cursor:pointer" title="Choose file automatically uploaded to system" id="ProjectFile1" name="ProjectFile1" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2">@Localizer["please, upload drawing for the project"]</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <img name="ProjectImage2" id="ProjectImage2" height="18" width="24">
+                                            <input type="hidden" id="Image2" height="18" width="24">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <input style="cursor:pointer" title="Choose file automatically uploaded to system" id="ProjectFile2" name="ProjectFile2" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2">@Localizer["please, upload property details for the project"]</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <img name="ProjectImage3" id="ProjectImage3" height="18" width="24">
+                                            <input type="hidden" id="Image3" height="18" width="24">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <input style="cursor:pointer" title="Choose file automatically uploaded to system" id="ProjectFile3" name="ProjectFile3" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <table style="width: 100%;" id="tbl-ProjectDocument" name="tbl-ProjectDocument" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s.no"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["media"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center text-muted">11</td>
+                                            <td class="text-center">Royal Decree</td>
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center text-muted">12</td>
+                                            <td class="text-center">Project Drawing</td>
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="step-32">
+                    <div id="smartwizard-project2-approve">
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["fetch consulting firm (cf) from moci"]
+                            </div>
+
+                            <div class="card-body">
+                                <div class="form-row">
+
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name"><span class="text-danger">*</span>@Localizer["project name"]</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.ProjectId, Model.ProjectList, "al batinah coastal road", new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["cr"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <input name="txt-filter-arabic" value="1213526" id="txt-filter-arabic" type="text" placeholder="enter here.." class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-search btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName" style="visibility: hidden;">hidden</label>
+                                            <button id="SearchTransaction" name="SearchTransaction" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                                <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["consultant name"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <input readonly="readonly" value="KPMG" name="txt-filter-english" id="txt-filter-english" type="text" placeholder="consultant name" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-search btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["cr expiry date"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <input readonly="readonly" value="25/12/2024" name="txt-filter-english" id="txt-filter-english" type="text" placeholder="11/11/2021" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-search btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["select existing consulting firm (cf)"]
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-row">
+
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["select consulting firm"]</label>
+
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.ProfileId, Model.ProfileList, "KPMG", new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-config btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">@Localizer["contract start date"] </label>
+
+                                            <div class="input-group">
+                                                <input name="consultantStartDate" value="11/11/2008" id="consultantStartDate" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectEndDate">@Localizer["contract end date"] </label>
+
+                                            <div class="input-group">
+                                                <input name="consultantEndDate" value="11/11/2013" id="consultantEndDate" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="d-block text-right card-footer">
+                                <input name="txtid" id="txtid" type="text" style="visibility:hidden" />
+                                <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                <button id="SaveTransaction" name="SaveTransaction" class="btn-icon btn-shadow btn-dashed btn btn-moi-green"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+
+                            </div>
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["consulting firm (cf) list"]
+                            </div>
+                            <div class="card-body">
+                                <table style="width: 100%;" id="tbl-Profile" name="tbl-Profile" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["cr"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-culture btn-icon-wrapper"> </i> @Localizer["cf name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magnet btn-icon-wrapper"> </i> @Localizer["project name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center text-muted">1213526</td>
+                                            <td class="text-center">KPMG</td>
+                                            <td class="text-center">
+                                                al batnah coastal road
+                                            </td>
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-pencil" style="cursor: pointer;margin-left: 10px;" title="edit"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center text-muted">000786</td>
+                                            <td class="text-center">Al Ansari</td>
+                                            <td class="text-center">
+                                                al batnah coastal road
+                                            </td>
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-pencil" style="cursor: pointer;margin-left: 10px;" title="edit"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["authorized user (for consulting firm (cf) select in above grid)"]
+                            </div>
+                            <div class="card-body">
+                                <table style="width: 100%;" id="tbl-ProfileUser" name="tbl-Profile" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["national id"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-world btn-icon-wrapper"> </i> @Localizer["cf name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-user btn-icon-wrapper"> </i> @Localizer["authorized user name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-phone btn-icon-wrapper"> </i> @Localizer["mobile"]</th>
+
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">31232131</td>
+                                            <td class="text-center">KPMG</td>
+                                            <td class="text-center">
+                                                Mohammad Al Ajmi
+                                            </td>
+                                            <td class="text-center">93894475</td>
+
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-sync" style="cursor: pointer;margin-left: 10px;" title="validate"></i></div></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td class="text-center">21323</td>
+                                            <td class="text-center">KPMG</td>
+                                            <td class="text-center">
+                                                Abdul Malik
+                                            </td>
+                                            <td class="text-center">93894475</td>
+
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-sync" style="cursor: pointer;margin-left: 10px;" title="validate"></i></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div id="step-42">
+                    <div id="smartwizard-project3-approve">
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["project locations"]
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name"><span class="text-danger">*</span>@Localizer["project name"]</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.ProjectId, Model.ProjectList, "al batnah coastal road", new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["governorates"]</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.GovernetId, Model.GovernoratesList, "Muscat", new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="Wilayat" id="lbl_stage3_name">@Localizer["wilayat"]</label>
+
+                                            <div class="input-group">
+                                                <select name="Wilayat" id="Wilayat" type="text" class="form-control">
+                                                    <option selected>Muscat</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="Village" id="lbl_stage3_name">@Localizer["municipality"]</label>
+                                            <div class="input-group">
+                                                <select name="Village" id="Village" type="text" class="form-control">
+                                                    <option selected>Bosher</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="Village" id="lbl_stage3_name">@Localizer["village"]</label>
+                                            <div class="input-group">
+                                                <select name="Village" id="Village" type="text" class="form-control">
+                                                    <option selected>Al Azaiba</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-block text-right card-footer">
+
+                                    <button id="ClearProject" name="ClearProject" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                    <button id="AddLocation" name="SaveProject" class="btn-icon btn-shadow btn-dashed btn btn-moi-green"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+
+                                </div>
+                                <div class="position-relative form-group">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-ProjectLocation" name="tbl-ProjectLocation" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["s.no"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["governorates"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["wilayat"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["municipality"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["village"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">1</td>
+                                                        <td class="text-center">Muscat</td>
+                                                        <td class="text-center">Muscat</td>
+                                                        <td class="text-center">Bosher</td>
+                                                        <td class="text-center">
+                                                            Al Azaiba
+                                                        </td>
+                                                        <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-pencil" style="cursor: pointer;margin-left: 10px;" title="edit"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["geometry (gis coordinates of project site)"]
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["geometry type"]</label>
+
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.GeometryId, Model.GeometryList, "Parcel", new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-compass btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["wgs84-latitude"]</label>
+
+                                            <div class="input-group">
+                                                <input name="EastingId" id="EastingId" value="23.614328" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-map-marker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["wgs84-longitude"]</label>
+
+                                            <div class="input-group">
+                                                <input name="Northing" id="Northing" value="58.545284" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-map-marker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <div class="text-center"><label for="exampleZip" style="visibility:hidden">label</label></div> <div>
+                                                <button id="AddGeometry" class="btn-icon btn-shadow btn-dashed btn btn-moi-green"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["add"]</button>
+                                                <button id="ClearProject" name="ClearProject" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="position-relative form-group">
+                                    <div class="main-card mb-3 card">
+                                        <div class="card-body">
+                                            <input id="HiddenGeometryId" type="hidden" />
+                                            <table style="width: 100%;" id="tbl-Geometry" name="tbl-Geometry" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["s.no"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["geometry type"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["latitude"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["longitude"]</th>
+                                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">111</td>
+                                                        <td class="text-center">Parcel</td>
+                                                        <td class="text-center">23.614328</td>
+                                                        <td class="text-center">58.545284</td>
+                                                        <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-pencil" style="cursor: pointer;margin-left: 10px;" title="edit"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                   
+                    <div id="step-52">
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["status of pcvd director approval and project"]
+                            </div>
+
+                            <div class="card-body">
+                                <div class="form-row">
+
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["project name"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <input name="txt_stage3_vehicletype" id="RoyalDecree" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["project owner (ea) name"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option selected>@Localizer["select project owner"]</option>
+                                                        <option>@Localizer["ministry of housing"]</option>
+                                                        <option>@Localizer["ministry of tourism"]</option>
+                                                        <option>@Localizer["ministry of interior"]</option>
+                                                        <option>@Localizer["ministry of transport"]</option>
+                                                        <option>@Localizer["ministry of health"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["status"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option selected>@Localizer["select status"]</option>
+                                                        <option>@Localizer["pending"]</option>
+                                                        <option>@Localizer["approved"]</option>
+
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName" style="visibility: hidden;">hidden</label>
+                                            <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                                <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["id"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["project owner (ea) name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["project name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["pcvd director approval status"]</th>
+
+                                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center text-muted">55</td>
+                                            <td class="text-center">
+                                                Ministry of Tourism
+                                            </td>
+                                            <td class="text-center">al batinah coastal road</td>
+                                            <td class="text-center">
+                                                Pending
+                                            </td>
+
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon pe-7s-browser" style="cursor: pointer;margin-left: 10px;" title="view"></i></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center text-muted">15</td>
+                                            <td class="text-center">
+                                                Ministry of Transport
+                                            </td>
+                                            <td class="text-center">Sur road</td>
+                                            <td class="text-center">
+                                                Approved
+                                            </td>
+
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon pe-7s-browser" style="cursor: pointer; margin-left: 10px;" title="view"></i></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                            @Localizer["project approval"]
+                        </div>
+                        <div class="no-results">
+                            <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                                <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                                <span class="swal2-success-line-tip"></span>
+                                <span class="swal2-success-line-long"></span>
+                                <div class="swal2-success-ring"></div>
+                                <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                                <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+                            </div>
+                            <div class="results-subtitle mt-4">@Localizer["view existing project"]</div>
+                            <div class="results-title">
+                                <div class="position-relative form-group">
+                                    <label for="PrpertyCardId">@Localizer["remark"]</label>
+
+                                    <div class="input-group">
+                                        <input name="PrpertyCardId" id="PrpertyCardId" type="text" class="form-control">
+                                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3 mb-3"></div>
+                            <div class="text-center">
+                                <button class="btn-shadow btn-wide btn btn-moi-green btn-lg">Approve</button>
+                                <button class="btn-shadow btn-wide btn btn-warning btn-lg">Request for Clarification</button>
+                                <button class="btn-shadow btn-wide btn btn-danger btn-lg" title="this project going to be cancelled">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step-62">
+
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                @Localizer["project status of completed/close"]
+                            </div>
+
+                            <div class="card-body">
+                                <div class="form-row">
+
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["project name"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <input name="txt_stage3_vehicletype" id="RoyalDecree" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["project owner (ea) name"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option selected>@Localizer["select project owner"]</option>
+                                                        <option>@Localizer["ministry of housing"]</option>
+                                                        <option>@Localizer["ministry of tourism"]</option>
+                                                        <option>@Localizer["ministry of interior"]</option>
+                                                        <option>@Localizer["ministry of transport"]</option>
+                                                        <option>@Localizer["ministry of health"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["status"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option selected>@Localizer["select status"]</option>
+                                                        <option>@Localizer["on progress"]</option>
+                                                        <option>@Localizer["completed"]</option>
+
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName" style="visibility: hidden;">hidden</label>
+                                            <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                                <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["id"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["project owner (ea) name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["project name"]</th>
+                                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["status"]</th>
+
+                                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center text-muted">55</td>
+                                            <td class="text-center">
+                                                Ministry of Transport
+                                            </td>
+                                            <td class="text-center">al batinah coastal road</td>
+                                            <td class="text-center">
+                                                Completed
+                                            </td>
+
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon pe-7s-browser" style="cursor: pointer;margin-left: 10px;" title="view"></i></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center text-muted">15</td>
+                                            <td class="text-center">
+                                                Ministry of Transport
+                                            </td>
+                                            <td class="text-center">Sur road</td>
+                                            <td class="text-center">
+                                                On progress
+                                            </td>
+
+                                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon pe-7s-browser" style="cursor: pointer; margin-left: 10px;" title="view"></i></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+      
+    </div>
+</div>
+<script src="~/AppJs/Project.js"></script>

@@ -1,0 +1,14 @@
+﻿.btn-float-left {
+    float: right;
+}
+
+.btn-float-right {
+    float: left;
+}
+.mc-3 {
+    margin-left: 1rem !important;
+}
+.mc-auto{
+    margin-right: auto !important;
+}
+

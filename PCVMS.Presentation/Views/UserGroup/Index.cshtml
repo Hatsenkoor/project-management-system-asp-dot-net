@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.Web.PCVMS_User_Group_Name_Model
+<form class="ui form" method="post">
+    <div class="col-md-6">
+        @*  @Html.TextBoxFor(model => model.Username)*@
+        <label for="ContactName">User Group Name:</label>
+        <input class="form-control" size="100" type="text" name="NameEn" value="" />
+
+    </div>
+
+
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button name="button" value="Submit" class="btn btn-success btn-lg">Create User</button>
+    </div>
+</form>
+
+<form class="ui form" method="post" action="/UserGroup/AssignGroup">
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.UserId)
+
+
+
+        @Html.DropDownListFor(model => model.UserId, Model.UserList, new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.GroupId)
+
+
+
+        @Html.DropDownListFor(model => model.GroupId, Model.PCVMS_User_Group_NameList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        <button name="button" value="Submit" class="btn btn-success btn-lg">Assing Group</button>
+    </div>
+    </form>

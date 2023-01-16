@@ -1,0 +1,1018 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model Fertilizer_Model
+
+<div class="card-body">
+
+    <div class="main-card mb-3 card">
+
+        <div class="card-header-custom  bg-moi-green">
+            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+            @Localizer["imported"]  @Localizer["fertilizer_soil_conditioners_registration_form"]
+        </div>
+        <div class="form-row">
+
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label for="RoyalDecree">
+                        @Localizer["local_company"]
+                    </label>
+                    <div class="input-group">
+                        <select id="ealist" class="form-control">
+                            <option selected>select company</option>
+                            <option>Technical Agri Support</option>
+                            <option>AL Saffa</option>
+                            <option>Mazoon Diary</option>
+                        </select>
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label for="RoyalDecree">
+                        @Localizer["governorate"]
+                    </label>
+                    <div class="input-group">
+                        <select id="ealist" class="form-control">
+                            <option>Muscat</option>
+                            <option>Dhofar</option>
+                            <option>Burami</option>
+                        </select>
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label for="ProjectName">@Localizer["status"]</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <select id="ealist" class="form-control">
+                                <option selected>select status</option>
+                                <option>submitted</option>
+                                <option>in process</option>
+                                <option>completed</option>
+                            </select>
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="ProjectName" style="visibility:hidden">cr</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <table style="width: 100%;" id="tbl-fertilizer-certificate-list" name="tbl-fertilizer-certificate-list" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["id"]</th>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["company"]</th>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["status"]</th>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+
+    </div>
+    <div class="main-card mb-3 card" id="Fertilizer_Certificate_Details">
+        <div class="card-header-custom  bg-moi-green">
+            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+            @Localizer["fertilizer_certificate_detail"]
+        </div>
+        <div class="form-row">
+
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label>@Localizer["fertilizer_type"]: <span style="color:red">*</span></label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.FertilizerTypeMasterID, Model.FertilizerTypeMaster, new { @class = "form-control fertilizer-number" })
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label>@Localizer["fertilizer_subcategory_master"]: <span style="color:red">*</span></label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.SubCategoryMasterID, Model.SubCategoryMaster, new { @class = "form-control fertilizer-number" })
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label>@Localizer["requested_date"]: <span style="color:red">*</span></label>
+
+                    <div class="input-group datepicker-click-fertilizercertificatedate">
+                        <input name="txt_requested_date" id="txt_requested_date" type="text" class="form-control" data-toggle="datepicker_trigger_txt_requested_date">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label>
+                        @Localizer["registration_request_no"]:<span style="color:red">*</span>
+                    </label>
+                    <div class="input-group">
+                        <input readonly name="ID" id="ID" value="0" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label>@Localizer["local_certificate_registration_no"]:<span style="color:red">*</span> </label>
+
+                    <div class="input-group">
+                        <input readonly value="" name="txt_local_registration_no" id="txt_local_registration_no" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["scientific_name_general"]: <span style="color:red">*</span></label>
+
+                    <div class="input-group">
+                        <input name="txt_scientific_name" id="txt_scientific_name" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["trade_name"]: <span style="color:red">*</span></label>
+
+                    <div class="input-group">
+                        <input name="txt_trade_name" id="txt_trade_name" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label>@Localizer["nature_shape"]: <span style="color:red">*</span></label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.NatureMasterID, Model.NatureMaster, new { @class = "form-control" })
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label>@Localizer["shape_master"]: <span style="color:red"></span></label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.ShapeMasterID, Model.ShapeMaster, new { @class = "form-control" })
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-2" id="pnlIsLiquidDensity">
+                <div class="position-relative form-group">
+                    <label for="ProjectStartDate">@Localizer["density"] </label>
+
+                    <div class="input-group">
+                        <input name="txt_density_concentration" value="0" id="txt_density_concentration" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" id="pnlIsLiquidPH">
+                <div class="position-relative form-group">
+                    <label for="ProjectStartDate">  @Localizer["ph"] </label>
+
+                    <div class="input-group">
+                        <input name="txt_ph_concentration" value="0" id="txt_ph_concentration" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["manufacturer"]:<span style="color:red">*</span></label>
+
+
+                    <div class="input-group">
+                        <input name="txt_manufacturer" id="txt_manufacturer" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["address"]:<span style="color:red">*</span></label>
+
+
+                    <div class="input-group">
+                        <input name="txt_manufacturer_address" id="txt_manufacturer_address" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["cr_number"]</label>
+
+                    <div class="input-group">
+                        <input name="txt_cr_number" id="txt_cr_number" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-search btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="ProjectName" style="visibility:hidden">cr</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <button id="btncallmoci" name="btncallmoci" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-plus btn-icon-wrapper"> </i>@Localizer["moci"]
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="position-relative form-group">
+                    <label for="RoyalDecree">
+                        @Localizer["registered_commercial_activities"]
+                    </label>
+                    <div class="input-group">
+                        <select id="commercial_activities" name="commercial_activities" type="text" class="form-control"></select>
+                        @*<input name="txt_registered_commercial_activities" id="txt_registered_commercial_activities" placeholder="please enter here..." type="text" class="form-control">*@
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["company_licensed_to_import_export_and_trade"]<span style="font-size:10px;">@Localizer["whole_sale"]:</span><span style="color:red">*</span></label>
+
+
+                    <div class="input-group">
+                        <input name="txt_company_licensed_import_export_trade" id="txt_company_licensed_import_export_trade" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label for="exampleAddress">@Localizer["import_and_export_license_number"]<span style="font-size:10px;">@Localizer["whole_sale"]:</span><span style="color:red">*</span></label>
+
+
+                    <div class="input-group">
+                        <input name="txt_import_export_license_number" id="txt_import_export_license_number" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label for="exampleAddress">@Localizer["address"]:<span style="color:red">*</span></label>
+                    <div class="input-group">
+                        <input name="txt_address" id="txt_address" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["importing_company"]:<span style="color:red">*</span></label>
+                    <div class="input-group">
+                        <input name="txt_exporting_company" id="txt_exporting_company" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["manufacturing_country"]:<span style="color: red">*</span></label>
+                    <div class="input-group">
+                        <input name="txt_manufacturing_country" id="txt_manufacturing_country" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label>@Localizer["address"]:<span style="color: red">*</span></label>
+
+                    <div class="input-group">
+                        <input name="txt_exporting_company_address" id="txt_exporting_company_address" placeholder="please enter here..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <div class="position-relative form-group">
+                    <label for="exampleAddress">@Localizer["remark"]</label>
+                    <div class="input-group">
+                        <input name="txt_remark" id="txt_remark" placeholder="ready only..." type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-block text-right card-footer">
+
+            <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+            <button id="btnSaveFertilizerCertificate" name="btnSaveFertilizerCertificate" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["save"]
+            </button>
+        </div>
+
+    </div>
+    <div id="pnlextra" name="pnlextra" style="display:none;">
+        <div class="main-card mb-3 card">
+            <div class="card-header-custom  bg-moi-green">
+                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                @Localizer["first_organic_fertilizers_and_soil_conditioners"]
+            </div>
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="position-relative form-group bg-label-green">
+                        <label>
+                            @Localizer["analysis_type"]
+                        </label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.OrganicAnalysisMasterID, Model.OrganicAnalysisMaster, new { @class = "form-control organic-analysis-master" })
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="pnl_organic_analysis_extra">
+                    <div class="position-relative form-group bg-label-green">
+                        <label>@Localizer["description"] </label>
+
+                        <div class="input-group">
+                            <input name="organic_analysis_extra" id="organic_analysis_extra" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group bg-label-green">
+                        <label>@Localizer["concentration_per"] </label>
+
+                        <div class="input-group">
+                            <input name="organic_concentration" id="organic_concentration" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">  @Localizer["source"] </label>
+
+                        <div class="input-group">
+                            <input name="organic_source" id="organic_source" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName" style="visibility:hidden">cr</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <button id="btnOrganicAnalysis" name="btnOrganicAnalysis" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                    <i class="pe-7s-plus btn-icon-wrapper"> </i>@Localizer["add"]
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="results-title">
+                <table style="width: 100%;" id="tbl-organic-concentration" name="tbl-organic-concentration-history" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["s_no"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["analysis"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["concentration_per"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i>  @Localizer["action"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="main-card mb-3 card">
+            <div class="card-header-custom  bg-moi-green">
+                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                @Localizer["fertilizer_second_heading"]
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="RoyalDecree">
+                            @Localizer["major_elements"]
+                        </label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.MajorElementMasterID, Model.MajorElementMaster, new { @class = "form-control" })
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="RoyalDecree">
+                            @Localizer["form_to_which_element_was_determined"]
+                        </label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.MajorElementFormMasterID, Model.MajorElementFormMaster, new { @class = "form-control" })
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">@Localizer["concentration_per"] </label>
+
+                        <div class="input-group">
+                            <input name="ChemicalDensityConcentration" id="ChemicalDensityConcentration" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">  @Localizer["source"] </label>
+
+                        <div class="input-group">
+                            <input name="ChemicalDensitySource" id="ChemicalDensitySource" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName" style="visibility:hidden">cr</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <button title="major" value="major" id="btnSaveChemicalDensity" name="btnSaveChemicalDensity" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3 fertilizerAnalysis">
+                                    <i class="pe-7s-plus btn-icon-wrapper"> </i>@Localizer["add"]
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="results-title">
+                <table style="width: 100%;" id="tbl-chemical-major" name="tbl-chemical-major" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["major_elements"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["form_elements"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["concentration_per"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["source"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+            <div class="form-row">
+
+                <div class="col-md-4">
+                    <div class="position-relative form-group">
+                        <label for="RoyalDecree">
+                            @Localizer["secondary_elements"]
+                        </label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.SecondaryElementMasterID, Model.SecondaryElementMaster, new { @class = "form-control" })
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">@Localizer["concentration"] </label>
+
+                        <div class="input-group">
+                            <input name="txtsecondaryconcentration" id="txtsecondaryconcentration" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">@Localizer["source"] </label>
+
+                        <div class="input-group">
+                            <input name="ChemicalPercentageSource" id="ChemicalPercentageSource" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName" style="visibility:hidden">cr</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <button title="secondary" value="secondry" id="btnSaveChemicalConcentration" name="btnSaveChemicalConcentration" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3 fertilizerAnalysis">
+                                    <i class="pe-7s-plus btn-icon-wrapper"> </i>@Localizer["add"]
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="results-title">
+                <table style="width: 100%;" id="tbl-chemical-secondary" name="tbl-chemical-secondary" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["secondary_elements"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["concentration"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["source"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="RoyalDecree">
+                            @Localizer["trace_elements"]
+                        </label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.TraceElementMasterID, Model.TraceElementMaster, new { @class = "form-control" })
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="RoyalDecree">
+                            @Localizer["element_form"]
+                        </label>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.TraceElementFormMasterID, Model.TraceElementFormMaster, new { @class = "form-control" })
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">@Localizer["concentration"] </label>
+
+                        <div class="input-group">
+                            <input name="txttraceconcentration" id="txttraceconcentration" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectStartDate">@Localizer["source"] </label>
+
+                        <div class="input-group">
+                            <input name="txttracesource" id="txttracesource" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName" style="visibility:hidden">cr</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <button title="trace" value="trace" id="btnSaveChemicalConcentration" name="btnSaveChemicalConcentration" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3 fertilizerAnalysis">
+                                    <i class="pe-7s-plus btn-icon-wrapper"> </i>@Localizer["add"]
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="results-title">
+                <table style="width: 100%;" id="tbl-chemical-trace" name="tbl-chemical-trace" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["trace_elements"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["element_form"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["concentration"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["source"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="main-card mb-3 card" id="mandatoryDocument">
+
+            <div class="card-header-custom  bg-moi-green">
+                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                @Localizer["fertilizer_mandatory_document"]
+            </div>
+            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_no"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_name"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["mandatory"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["pdf"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["uploaded"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>@Localizer["imported_fertilizer_1"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage1" height="18" width="24">
+                                <input type="hidden" id="Image1" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File1_upload' name='File1_upload'>
+                            <div class='position-relative'> <label for="File1"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File1" name="File1" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File1_success' name='File1_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>@Localizer["imported_fertilizer_2"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage2" height="18" width="24">
+                                <input type="hidden" id="Image2" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File2_upload' name='File2_upload'>
+                            <div class='position-relative'> <label id="lblFile2" for="File2"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File2" name="File2" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File2_success' name='File2_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>@Localizer["imported_fertilizer_3"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage3" height="18" width="24">
+                                <input type="hidden" id="Image3" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File3_upload' name='File3_upload'>
+                            <div class='position-relative'> <label for="File3"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File3" name="File3" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File3_success' name='File3_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>@Localizer["imported_fertilizer_4"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage4" height="18" width="24">
+                                <input type="hidden" id="Image4" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File4_upload' name='File4_upload'>
+                            <div class='position-relative'> <label for="File4"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File4" name="File4" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File4_success' name='File4_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>@Localizer["imported_fertilizer_5"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage5" height="18" width="24">
+                                <input type="hidden" id="Image5" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File5_upload' name='File5_upload'>
+                            <div class='position-relative'> <label for="File5"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File5" name="File5" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File5_success' name='File5_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>@Localizer["imported_fertilizer_6"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage6" height="18" width="24">
+                                <input type="hidden" id="Image6" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File6_upload' name='File6_upload'>
+                            <div class='position-relative'> <label for="File6"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File6" name="File6" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File6_success' name='File6_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>@Localizer["imported_fertilizer_7"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage7" height="18" width="24">
+                                <input type="hidden" id="Image7" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File7_upload' name='File7_upload'>
+                            <div class='position-relative'> <label for="File7"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File7" name="File7" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File7_success' name='File7_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>@Localizer["imported_fertilizer_8"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage8" height="18" width="24">
+                                <input type="hidden" id="Image8" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File8_upload' name='File8_upload'>
+                            <div class='position-relative'> <label for="File8"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File8" name="File8" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File8_success' name='File8_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>@Localizer["imported_fertilizer_9"]</td>
+                        <td class="text-center" style="color:red">*</td>
+                        <td>
+                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                <img name="email" id="FileImage9" height="18" width="24">
+                                <input type="hidden" id="Image9" height="18" width="24">
+
+                            </div>
+                        </td>
+                        <td class="text-center" id='File9_upload' name='File9_upload'>
+                            <div class='position-relative'> <label for="File9"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                            <input style="cursor:pointer; display:none" title="Choose file automatically uploaded to system" id="File9" name="File9" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                        </td>
+                        <td class="text-center" id='File9_success' name='File9_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="main-card mb-3 card" id="additionalDocument" style="display:none;">
+            <div class="card-body">
+                <div class="card-header-custom  bg-moi-green">
+                    <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                    @Localizer["additional_supporting_document"]
+                </div>
+                <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_no"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_name"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["mandatory"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["pdf"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                            <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["uploaded"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                            </td>
+                            <td class="text-center"></td>
+                            <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i><i class="metismenu-icon lnr-trash" style="cursor: pointer;margin-left: 10px;" title="delete"></i></div></td>
+                            <td class="text-center"><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+     </div>
+        <div class="main-card mb-3 card" id="pnlfinalSubmission" name="pnlfinalSubmission" style="display:none;">
+            <div class="d-block text-right card-footer">
+
+                <button id="btnfinalSubmission" name="btnfinalSubmission" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                    <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["final_submission"]
+                </button>
+            </div>
+        </div>
+        <div class="main-card mb-3 card" id="panel-fertilizer-payment-request">
+            <div class="card-header-custom  bg-moi-green">
+                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                @Localizer["registration_fee"] - @Localizer["payment_detail"]
+            </div>
+            <div class="no-results">
+
+                <div class="results-title">
+                    <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["s_no"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["service_description"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["amount_omr"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td class="text-center">application fertilizer registration fee</td>
+                                <td class="text-center">20.000</td>
+                            </tr>
+                            <tr style="font-size: large;font-weight: bold;">
+                                <td style="border: 0px;"></td>
+                                <td class="text-center" style="font:bold">Total amount to pay for Fertilizer Certificate registration</td>
+                                <td class="text-center" style="font:bold" id="txtamount">20.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="mt-3 mb-3"></div>
+                <div class="text-center" id="pnlRegistrationFee" name="btnRegistrationFee" style="display:none;">
+                    <button id="btnRegistrationFee" name="btnRegistrationFee" class="btn-shadow btn-wide btn btn-moi-green btn-lg">@Localizer["pay_now"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-card mb-3 card" id="fertilizer-certificate-review-approval" style="display:none;">
+        <div class="card-header-custom  bg-moi-green">
+            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+            @Localizer["ministry_review_process"]
+        </div>
+        <div class="no-results">
+            <div class="main-card mb-3 card">
+                <div class="card-header-custom  bg-moi-green">
+                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                    @Localizer["review_history"]
+                </div>
+                <div class="card-body" readonly="readonly">
+                    <table style="width: 100%;" id="tbl-review-history" name="tbl-review-history" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["remark"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["status"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["user"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["date"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                <i class="metismenu-icon lnr-hourglass" style="cursor: pointer;font-size:2.5rem;line-height: 1.75;" title="wait for approval"></i>
+            </div>
+            <div class="results-title">
+                <div class="position-relative form-group">
+                    <label for="PrpertyCardId">@Localizer["remark"]</label>
+
+                    <div class="input-group">
+                        <input name="PrpertyCardId" id="txtReviewHistory" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-card mb-3 card" id="additional-document-fertilizer-registration">
+                <div class="card-body">
+                    <div class="card-header-custom  bg-moi-green">
+                        <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                        @Localizer["supporting_document"]
+                    </div>
+                    <table style="width: 100%;" id="tbl-support-document" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_no"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_name"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["mandatory"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["pdf"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["uploaded"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>@Localizer["support_document_for_selected_remark"]</td>
+                                <td class="text-center" style="color:forestgreen">*</td>
+                                <td>
+                                    <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                        <img name="email" id="FileImage1_review" height="18" width="24">
+                                        <input type="hidden" id="Image1_review" height="18" width="24">
+                                        <input type="hidden" id="ReviewID" height="18" width="24">
+                                    </div>
+                                </td>
+                                <td class="text-center" id='File1_review_upload' name='File1_review_upload'>
+                                    <div class='position-relative'> <label for="File1_review"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                                    <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File1_review" name="File1_review" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadReviewFiles(this);" />
+                                </td>
+                                <td class="text-center" id='File1_review_success' name='File1_review_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mt-3 mb-3"></div>
+            <div class="text-center" id="pnlreviewapproval">
+                <button id="btnRFCCertificate" name="btnRFCCertificate" class="btn-shadow btn-wide btn btn-moi-gold-dark btn-lg" title="this site visit going to be cancelled"> @Localizer["rfc"] (@Localizer["request_for_clarification"])</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/fertilizer/imported.js"></script>

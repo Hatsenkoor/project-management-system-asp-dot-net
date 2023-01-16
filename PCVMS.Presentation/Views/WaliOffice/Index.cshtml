@@ -1,0 +1,858 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model PCVMS.Model.Web.PCVMS_Project_Model
+
+
+    <div class="tab-content">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-header  bg-happy-green">
+                        <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                        <h1>@Localizer["finance section head"]</h1>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div id="smartwizard-finance" class="forms-wizard-vertical">
+
+                    <ul class="forms-wizard">
+                        <li>
+                            <a href="#step-1">
+                                <em><i class="header-icon pe-7s-note2 icon-gradient bg-happy-green"> </i></em><span>@Localizer["payment received"]</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-2">
+                                <em><i class="header-icon pe-7s-user icon-gradient bg-happy-green"> </i></em><span>@Localizer["payment paid"]</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#step-3">
+                                <em><i class="header-icon pe-7s-compass icon-gradient bg-happy-green"> </i></em><span>@Localizer["cheque print"]</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-4">
+                                <em><i class="header-icon pe-7s-home icon-gradient bg-happy-green"> </i></em><span>@Localizer["waiver document signed"]</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-5">
+                                <em><i class="header-icon pe-7s-check icon-gradient bg-happy-green"> </i></em><span>@Localizer["cheque handover"]</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="form-wizard-content">
+                        <div id="step-1">
+
+                            <div id="ProjectDiv" class="main-card mb-3 card">
+                                <div class="card-header-custom  bg-happy-green">
+                                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                                    @Localizer["payment received detail"]
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2" id="lbl_stage3_name"> @Localizer["expropriation authority"] </label>
+
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option>@Localizer["ministry of tourism"]</option>
+                                                        <option>@Localizer["ministry of transport"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["project name"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option>@Localizer["batna road"]</option>
+                                                        <option>@Localizer["batna road"]</option>
+                                                        <option>@Localizer["rasal jinz tortile resort"]</option>
+                                                        <option>@Localizer["rasal jinz tortile resort"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["bank name"]</label>
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option>@Localizer["bank muscat"]</option>
+                                                        <option>@Localizer["bank nizwa"]</option>
+                                                        <option>@Localizer["national bank of oman"]</option>
+                                                        <option>@Localizer["bank dhofar"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate">@Localizer["cheque date"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectStartDate" id="ProjectStartDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectEndDate">@Localizer["validity date"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectEndDate" id="ProjectEndDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["in favour"]</label>
+                                                <div class="input-group">
+                                                    <input name="ProjectName" id="ProjectName" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate">@Localizer["amount in omr"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectStartDate" id="ProjectStartDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["amount in words"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["payment made against following properties"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["remark"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="any remark, please enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="d-block text-right card-footer">
+
+                                    <button id="ClearProject" name="ClearProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                    <button id="SaveProject" name="SaveProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+
+                                </div>
+
+                            </div>
+                            <div class="main-card mb-3 card">
+                                <div class="card-header-custom  bg-happy-green">
+                                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                    @Localizer["media"]
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload scan copy of cheque"]</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="email" id="ProjectImage1" height="18" width="24">
+                                                <input type="hidden" id="Image1" height="18" width="24">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile1" name="ProjectFile1" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload payment reference document"]</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="ProjectImage2" id="ProjectImage2" height="18" width="24">
+                                                <input type="hidden" id="Image2" height="18" width="24">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile2" name="ProjectFile2" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload any other document"]</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="ProjectImage3" id="ProjectImage3" height="18" width="24">
+                                                <input type="hidden" id="Image3" height="18" width="24">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile3" name="ProjectFile3" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="card-body">
+                                    <table style="width: 100%;" id="tbl-ProjectDocument" name="tbl-ProjectDocument" class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["media"]</th>
+                                                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div id="step-2">
+                            <div id="ProjectDiv" class="main-card mb-3 card">
+                                <div class="card-header-custom  bg-happy-green">
+                                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                                    @Localizer["payment paid detail"]
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["property number"]</label>
+                                                <div class="input-group">
+                                                    <input name="ProjectName" id="ProjectName" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate" style="visibility:hidden">@Localizer["search"] </label>
+
+                                                <div class="input-group">
+                                                    <button id="SaveProject" name="SaveProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2" id="lbl_stage3_name"> @Localizer["property owner name"] </label>
+
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["property number"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2" id="lbl_stage3_name"> @Localizer["krooki"] </label>
+
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["mulkiya"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["cheque date"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["in favour"]</label>
+                                                <div class="input-group">
+                                                    <input name="ProjectName" id="ProjectName" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate">@Localizer["amount in omr"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectStartDate" id="ProjectStartDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["amount in words"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["bank name"]</label>
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option>@Localizer["bank muscat"]</option>
+                                                        <option>@Localizer["bank nizwa"]</option>
+                                                        <option>@Localizer["national bank of oman"]</option>
+                                                        <option>@Localizer["bank dhofar"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate">@Localizer["cheque date"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectStartDate" id="ProjectStartDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectEndDate">@Localizer["validity date"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectEndDate" id="ProjectEndDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["remark"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="any remark, please enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="d-block text-right card-footer">
+
+                                        <button id="ClearProject" name="ClearProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                        <button id="SaveProject" name="SaveProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["pay"]</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="step-3">
+                            <div id="ProjectDiv" class="main-card mb-3 card">
+                                <div class="card-header-custom  bg-happy-green">
+                                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                                    @Localizer["cheque print"]
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["property number"]</label>
+                                                <div class="input-group">
+                                                    <input name="ProjectName" id="ProjectName" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate" style="visibility:hidden">@Localizer["search"] </label>
+
+                                                <div class="input-group">
+                                                    <button id="SaveProject" name="SaveProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2" id="lbl_stage3_name"> @Localizer["property owner name"] </label>
+
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["property number"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2" id="lbl_stage3_name"> @Localizer["krooki"] </label>
+
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["mulkiya"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="RoyalDecree">
+                                                    @Localizer["valuation decision"]
+
+                                                </label>
+                                                <div class="input-group">
+                                                    <input id="ealist" class="form-control">
+
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["bank name"]</label>
+                                                <div class="input-group">
+                                                    <select id="ealist" class="form-control">
+                                                        <option>@Localizer["bank muscat"]</option>
+                                                        <option>@Localizer["bank nizwa"]</option>
+                                                        <option>@Localizer["national bank of oman"]</option>
+                                                        <option>@Localizer["bank dhofar"]</option>
+                                                    </select>
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate">@Localizer["cheque date"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectStartDate" id="ProjectStartDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectEndDate">@Localizer["validity date"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectEndDate" id="ProjectEndDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectName">@Localizer["in favour"]</label>
+                                                <div class="input-group">
+                                                    <input name="ProjectName" id="ProjectName" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-rocket btn-icon-wrapper"> </i></span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="position-relative form-group">
+                                                <label for="ProjectStartDate">@Localizer["amount in omr"] </label>
+
+                                                <div class="input-group">
+                                                    <input name="ProjectStartDate" id="ProjectStartDate" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["amount in words"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleAddress">@Localizer["remark"]</label>
+
+
+                                                <div class="input-group">
+                                                    <input name="txtremark" id="txtremark" placeholder="any remark, please enter here..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-block text-right card-footer">
+
+                                        <button id="ClearProject" name="ClearProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["cancel"]</button>
+                                        <button id="SaveProject" name="SaveProject" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-print btn-icon-wrapper"> </i>@Localizer["print"]</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="step-4"></div>
+                        <div id="step-5">
+                            <div class="main-card mb-3 card">
+                                <div class="card-header-custom  bg-happy-green">
+                                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                    @Localizer["media"]
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload scan copy of cheque"]</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="email" id="ProjectImage1" height="18" width="24">
+                                                <input type="hidden" id="Image1" height="18" width="24">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile1" name="ProjectFile1" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload property waiver document"]</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="ProjectImage2" id="ProjectImage2" height="18" width="24">
+                                                <input type="hidden" id="Image2" height="18" width="24">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile2" name="ProjectFile2" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload authorization letter"]</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="ProjectImage3" id="ProjectImage3" height="18" width="24">
+                                                <input type="hidden" id="Image3" height="18" width="24">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile3" name="ProjectFile3" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload electricity disconnection letter"]</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="ProjectImage3" id="ProjectImage3" height="18" width="24">
+                                                <input type="hidden" id="Image3" height="18" width="24">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile3" name="ProjectFile3" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <label for="exampleEmail2">@Localizer["please, upload water disconnection letter"]</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="position-relative form-group">
+                                                <img name="ProjectImage3" id="ProjectImage3" height="18" width="24">
+                                                <input type="hidden" id="Image3" height="18" width="24">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="position-relative form-group">
+                                                <input id="ProjectFile3" name="ProjectFile3" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="card-body">
+                                    <table style="width: 100%;" id="tbl-ProjectDocument" name="tbl-ProjectDocument" class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["media"]</th>
+                                                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+<script src="~/AppJs/finance.js"></script>
+

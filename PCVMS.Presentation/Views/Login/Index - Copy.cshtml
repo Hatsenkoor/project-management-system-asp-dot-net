@@ -1,0 +1,105 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+    var Localizer = await obj.GetAllResource();
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Finance System - MAFWR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="MAFWR (Ministry of Agriculture Fisheries Wealth & Water Resources )">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link href="~/css/main.87c0748b313a1dda75f5.css" rel="stylesheet">
+    <link href="~/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container  body-tabs-shadow">
+        <div class="app-container">
+            <div class="h-100">
+                <div class="h-100 no-gutters row">
+                    <div class="app-main__inner_custom">
+                        <div class="d-lg-flex d-xs-none custom-container">
+                            <div class="position-relative d-flex justify-content-center align-items-center" tabindex="-1">
+                                <img class="img-fluid" src="~/images/food.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-100 d-flex justify-content-center align-items-center col-md-12 col-lg-4" style="background-color:#f1f4f6">
+                        <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9">
+                            <div class="app-logo" style="margin-left:25%;"></div>
+                            <h1 class="mb-0 bg-login-green">
+                                <span class="d-block">Finance System</span>
+                            </h1>
+                            <div class="divider row"></div>
+                            <h4 class="mb-0">
+                                <span>[login_page_message]</span>
+                            </h4>
+                            <div class="divider row"></div>
+                            <div>
+                                <form form" method="post" action="~/Login/Index">
+                                    <div class="form-row">
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["user"]</label></div>
+                                        </div>
+                                        <div class="col-md-9">
+
+                                            <div class="position-relative form-group">
+
+                                                <div class="input-group">
+                                                    <input name="UserName" id="Username" placeholder="Email here..." type="email" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-mail btn-icon-wrapper"> </i></span></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-3">
+                                            <label for="examplePassword" class="">@Localizer["password"]</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="position-relative form-group">
+
+                                                <div class="input-group">
+                                                    <input name="Signature" id="Password" placeholder="Password here..." type="password" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider row"></div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="d-flex align-items-center">
+
+                                                <button class="mb-2 mr-2 btn-icon-vertical btn-shadow btn-dashed btn btn-outline-success btn-lg btn-block"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>@Localizer["login"]</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

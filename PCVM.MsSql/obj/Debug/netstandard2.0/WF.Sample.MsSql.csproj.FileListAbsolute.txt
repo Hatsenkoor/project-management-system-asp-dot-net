@@ -1,0 +1,11 @@
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\WF.Sample.MsSql.deps.json
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\WF.Sample.MsSql.dll
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\WF.Sample.MsSql.pdb
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\WF.Sample.Business.dll
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\WF.Sample.Business.pdb
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\WF.Sample.MsSql.csprojAssemblyReference.cache
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\WF.Sample.MsSql.AssemblyInfoInputs.cache
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\WF.Sample.MsSql.AssemblyInfo.cs
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\WF.Sample.MsSql.csproj.CopyComplete
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\WF.Sample.MsSql.dll
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\WF.Sample.MsSql.pdb

@@ -1,0 +1,67 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     var   Localizer =await obj.GetAllResource();
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@Localizer["Select Property Type for Survey"]</h5>
+                <div class="row">
+                    <div class="col-sm-6 col-xl-4">
+
+                        <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="lnr-apartment btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Apartments"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="lnr-store btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Villas"]
+                            </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+
+                            <i class="fa fa-home btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Town houses"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                       <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="fa fa-hospital btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Compounds"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                       <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="fa fa-building btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Towers"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="lnr-construction btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Construction Site"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="fa fa-hospital btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Governmental"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                       <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="fa fa-building btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Religious"]
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                       <a class="btn-icon-vertical mb-3 btn-transition btn-block btn btn-outline-success" href="~/ResidentialPropertyRegistration/Residential">
+                            <i class="lnr-construction btn-icon-wrapper"> </i><span class="badge badge-danger badge-dot badge-dot-inside"> </span>@Localizer["Opened unplanned"]
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

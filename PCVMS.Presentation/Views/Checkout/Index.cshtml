@@ -1,0 +1,40 @@
+﻿@model PCVMS.Model.Web.Checkout
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<head id="Head1" runat="server">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#nonseamless").submit();
+        });
+    </script>
+    <title>
+    </title>
+</head>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+    <form id="nonseamless" method="post" name="redirect" action="https://mti.bankmuscat.com:6443/transaction.do?command=initiateTransaction">
+        <input type="hidden" id="encRequest" name="encRequest" value=@Model.EncRequest />
+        <input type="hidden" name="access_code" id="Hidden1" value=@Model.AccessCode />
+        <input type="hidden"  type="submit" value="Checkout" />
+    </form>
+    <div id="no_record_screen">
+        <div class="swal2-icon swal2-success swal2-animate-success-icon">
+            <i class="metismenu-icon lnr-hourglass" style="cursor: pointer; font-size: 2.5rem; line-height: 1.75; margin-left: 20%;" title="wait for approval"></i>
+        </div>
+        <div class="results-title" style="font-size: 30px; color: purple;">
+          
+            <div class="position-relative form-group">
+
+                <label for="PrpertyCardId">Waiting.....</label>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>

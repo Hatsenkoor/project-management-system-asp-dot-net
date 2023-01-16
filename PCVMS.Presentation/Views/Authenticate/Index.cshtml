@@ -1,0 +1,24 @@
+﻿@model PCVMS.Model.Web.UserModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form  class="ui form" method="post" action="/api/Authenticate/Authenticate">
+    <div class="field">
+        @*  @Html.TextBoxFor(model => model.Username)*@
+        <label for="ContactName">User Name:</label>
+        <input type="text" name="Username" value="" />
+
+    </div>
+
+    <div class="field">
+        @*@Html.TextBoxFor(model => model.Password)*@
+        <label for="Password">Password:</label>
+        <input type="text" name="Password" value="" />
+
+    </div>
+    <button name="button" value="Submit" class="ui floated button">Login</button>
+    <h2>Login</h2>
+</form>

@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <ns2:companyOverviewResponse xmlns:ns2="http://www.investeasy.gov.om/schema/cr-2.1">
+      <wsResponseHeader>
+        <requestId>040620132441</requestId>
+        <responseDateTime>2020-06-04T13:23:48.803+04:00</responseDateTime>
+        <serviceRequester>MECA_WSCR</serviceRequester>
+      </wsResponseHeader>
+      <wsResponseBody>
+        <companyOverview>
+          <crNumber>1089431</crNumber>
+          <companyNameArabic>الخليج لخدمات الفحص التقني</companyNameArabic>
+          <companyNameEnglish>Gulf technical inspection services</companyNameEnglish>
+          <companyNameWithLegalArabic>الخليج لخدمات الفحص التقني ش م م</companyNameWithLegalArabic>
+          <companyNameWithLegalEnglish>Gulf technical inspection services LLC</companyNameWithLegalEnglish>
+          <country code="512">
+            <nameAr>سلطنة عمان</nameAr>
+            <nameEn>Sultanate of Oman</nameEn>
+          </country>
+          <legalStatus code="LLC">
+            <nameAr>شركة محدودة المسؤولية</nameAr>
+            <nameEn>Limited Liability Company</nameEn>
+          </legalStatus>
+          <registrationStatus code="ACTIVE">
+            <nameAr>نشط</nameAr>
+            <nameEn>Active</nameEn>
+          </registrationStatus>
+          <registrationDate>2010-05-29</registrationDate>
+          <establishmentDate>2010-05-29</establishmentDate>
+          <subjectToForeignInvestment>YES</subjectToForeignInvestment>
+          <expiryDate>2025-06-02</expiryDate>
+          <isExpired>NO</isExpired>
+          <address>
+            <town code="01040023">
+              <nameAr>الخوير الجنوبية</nameAr>
+              <nameEn>South Alkhuwair</nameEn>
+              <specialZone>NO</specialZone>
+            </town>
+            <state code="0104">
+              <nameAr>بوشر</nameAr>
+              <nameEn>Bousher</nameEn>
+              <specialZone>NO</specialZone>
+            </state>
+            <governorate code="01">
+              <nameAr>محافظة مسقط</nameAr>
+              <nameEn>Muscat Governorate</nameEn>
+              <specialZone>NO</specialZone>
+            </governorate>
+            <wayNumber>0</wayNumber>
+            <buildingNumber>595</buildingNumber>
+            <postalCode>133</postalCode>
+            <poBox>1318</poBox>
+            <latitude>23.629427</latitude>
+            <longitude>58.497391</longitude>
+          </address>
+          <contact>
+            <phone>96824480115</phone>
+            <fax>96824480155</fax>
+            <email>info@gtisoman.com</email>
+            <mobile>96899334540</mobile>
+          </contact>
+          <capital>
+            <cashCapital>150000</cashCapital>
+            <assetCapital>0</assetCapital>
+            <totalCapital>150000</totalCapital>
+            <shareValue>1</shareValue>
+            <totalShares>150000</totalShares>
+            <capitalVerified>YES</capitalVerified>
+          </capital>
+          <fiscal>
+            <firstFiscalYearEnd>2010-12-31</firstFiscalYearEnd>
+            <fiscalYearEndDay>31</fiscalYearEndDay>
+            <fiscalYearEndMonth>12</fiscalYearEndMonth>
+          </fiscal>
+          <declaredActivities>
+            <activity>
+              <isicCode>712004</isicCode>
+              <isicVersion>4.0</isicVersion>
+              <nameAr>مختبرات المعايرة</nameAr>
+              <nameEn>Calibration Laboratories</nameEn>
+              <registrationDate>2017-04-27</registrationDate>
+            </activity>
+            <activity>
+              <isicCode>477318</isicCode>
+              <isicVersion>4.0</isicVersion>
+              <nameAr>البيع بالتجزئة في المتاجر المتخصصة لأجهزة القياس والرقابة</nameAr>
+              <nameEn>Retail sale in specialized stores of measurement devices and control apparatus</nameEn>
+              <registrationDate>2017-04-27</registrationDate>
+            </activity>
+            <activity>
+              <isicCode>461004</isicCode>
+              <isicVersion>4.0</isicVersion>
+              <nameAr>وكالات الأعمال التجارية (لا تشمل أعمال المحافظ والمتاجرة بالأوراق المالية)</nameAr>
+              <nameEn>Trading business agencies (excluding portfolio and security exchange)</nameEn>
+              <registrationDate>2017-04-27</registrationDate>
+            </activity>
+            <activity>
+              <isicCode>461003</isicCode>
+              <isicVersion>4.0</isicVersion>
+              <nameAr>مكاتب التصدير والاستيراد</nameAr>
+              <nameEn>Activities of export and import offices</nameEn>
+              <registrationDate>2017-04-27</registrationDate>
+            </activity>
+          </declaredActivities>
+          <placesOfActivities>
+            <placeOfActivity>
+              <poaCode>18345940</poaCode>
+              <businessLocation>
+                <town code="01040015">
+                  <nameAr>غلاء</nameAr>
+                  <nameEn>Ghala</nameEn>
+                  <specialZone>NO</specialZone>
+                </town>
+                <state code="0104">
+                  <nameAr>بوشر</nameAr>
+                  <nameEn>Bousher</nameEn>
+                  <specialZone>NO</specialZone>
+                </state>
+                <governorate code="01">
+                  <nameAr>محافظة مسقط</nameAr>
+                  <nameEn>Muscat Governorate</nameEn>
+                  <specialZone>NO</specialZone>
+                </governorate>
+                <buildingNumber>595</buildingNumber>
+                <postalCode>133</postalCode>
+                <poBox>1318</poBox>
+              </businessLocation>
+              <activities>
+                <activity>
+                  <isicCode>461003</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>مكاتب التصدير والاستيراد</nameAr>
+                  <nameEn>Activities of export and import offices</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+                <activity>
+                  <isicCode>461004</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>وكالات الأعمال التجارية (لا تشمل أعمال المحافظ والمتاجرة بالأوراق المالية)</nameAr>
+                  <nameEn>Trading business agencies (excluding portfolio and security exchange)</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+                <activity>
+                  <isicCode>712004</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>مختبرات المعايرة</nameAr>
+                  <nameEn>Calibration Laboratories</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+              </activities>
+            </placeOfActivity>
+            <placeOfActivity>
+              <poaCode>45519350</poaCode>
+              <businessLocation>
+                <town code="01040004">
+                  <nameAr>الخوير</nameAr>
+                  <nameEn>الخوير</nameEn>
+                  <specialZone>NO</specialZone>
+                </town>
+                <state code="0104">
+                  <nameAr>بوشر</nameAr>
+                  <nameEn>Bousher</nameEn>
+                  <specialZone>NO</specialZone>
+                </state>
+                <governorate code="01">
+                  <nameAr>محافظة مسقط</nameAr>
+                  <nameEn>Muscat Governorate</nameEn>
+                  <specialZone>NO</specialZone>
+                </governorate>
+                <wayNumber>2525</wayNumber>
+                <buildingNumber>174</buildingNumber>
+                <postalCode>1318</postalCode>
+                <poBox>133</poBox>
+                <latitude>23.58035</latitude>
+                <longitude>58.43276</longitude>
+              </businessLocation>
+              <activities>
+                <activity>
+                  <isicCode>712004</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>مختبرات المعايرة</nameAr>
+                  <nameEn>Calibration Laboratories</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+              </activities>
+            </placeOfActivity>
+            <placeOfActivity>
+              <poaCode>45589584</poaCode>
+              <businessLocation>
+                <town code="11030051">
+                  <nameAr>المنطقة الاقتصادية الخاصة بالدقم</nameAr>
+                  <nameEn>The Special Economic Zone at Duqm</nameEn>
+                  <specialZone>YES</specialZone>
+                </town>
+                <state code="1103">
+                  <nameAr>الـدقــم</nameAr>
+                  <nameEn>Al-Duqm</nameEn>
+                  <specialZone>NO</specialZone>
+                </state>
+                <governorate code="11">
+                  <nameAr>محافظة الوسطى</nameAr>
+                  <nameEn>Al Wusta Governorate</nameEn>
+                  <specialZone>NO</specialZone>
+                </governorate>
+                <postalCode>133</postalCode>
+                <poBox>1318</poBox>
+                <latitude>19.691723</latitude>
+                <longitude>57.680638</longitude>
+              </businessLocation>
+              <activities>
+                <activity>
+                  <isicCode>712004</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>مختبرات المعايرة</nameAr>
+                  <nameEn>Calibration Laboratories</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+              </activities>
+            </placeOfActivity>
+            <placeOfActivity>
+              <poaCode>38161781</poaCode>
+              <businessLocation>
+                <town code="01040015">
+                  <nameAr>غلاء</nameAr>
+                  <nameEn>Ghala</nameEn>
+                  <specialZone>NO</specialZone>
+                </town>
+                <state code="0104">
+                  <nameAr>بوشر</nameAr>
+                  <nameEn>Bousher</nameEn>
+                  <specialZone>NO</specialZone>
+                </state>
+                <governorate code="01">
+                  <nameAr>محافظة مسقط</nameAr>
+                  <nameEn>Muscat Governorate</nameEn>
+                  <specialZone>NO</specialZone>
+                </governorate>
+                <buildingNumber>595</buildingNumber>
+                <postalCode>133</postalCode>
+                <poBox>1318</poBox>
+              </businessLocation>
+              <activities>
+                <activity>
+                  <isicCode>477318</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>البيع بالتجزئة في المتاجر المتخصصة لأجهزة القياس والرقابة</nameAr>
+                  <nameEn>Retail sale in specialized stores of measurement devices and control apparatus</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+              </activities>
+            </placeOfActivity>
+            <placeOfActivity>
+              <poaCode>45377425</poaCode>
+              <businessLocation>
+                <town code="01040023">
+                  <nameAr>الخوير الجنوبية</nameAr>
+                  <nameEn>South Alkhuwair</nameEn>
+                  <specialZone>NO</specialZone>
+                </town>
+                <state code="0104">
+                  <nameAr>بوشر</nameAr>
+                  <nameEn>Bousher</nameEn>
+                  <specialZone>NO</specialZone>
+                </state>
+                <governorate code="01">
+                  <nameAr>محافظة مسقط</nameAr>
+                  <nameEn>Muscat Governorate</nameEn>
+                  <specialZone>NO</specialZone>
+                </governorate>
+                <streetNameAr>بوشر</streetNameAr>
+                <streetNameEn>busher</streetNameEn>
+                <buildingNumber>0</buildingNumber>
+                <postalCode>0</postalCode>
+                <poBox>0</poBox>
+                <latitude>23.585385</latitude>
+                <longitude>58.397141</longitude>
+              </businessLocation>
+              <activities>
+                <activity>
+                  <isicCode>712004</isicCode>
+                  <isicVersion>4.0</isicVersion>
+                  <nameAr>مختبرات المعايرة</nameAr>
+                  <nameEn>Calibration Laboratories</nameEn>
+                  <subjectToLicensing>NO</subjectToLicensing>
+                  <licenseObtained>YES</licenseObtained>
+                </activity>
+              </activities>
+            </placeOfActivity>
+          </placesOfActivities>
+          <investors>
+            <investor>
+              <isEstablishment>YES</isEstablishment>
+              <designation code="LL_PARTNER">
+                <nameAr>شريك محدود المسؤولية</nameAr>
+                <nameEn>Limited Liability Partner</nameEn>
+              </designation>
+              <numberOfShares>105000</numberOfShares>
+              <registrationDate>2012-12-12</registrationDate>
+              <company>
+                <crNumber>1017885</crNumber>
+                <companyNameArabic>مجموعة العريمي القابضة</companyNameArabic>
+                <country code="512">
+                  <nameAr>سلطنة عمان</nameAr>
+                  <nameEn>Sultanate of Oman</nameEn>
+                </country>
+                <legalStatus code="LLC">
+                  <nameAr>شركة محدودة المسؤولية</nameAr>
+                  <nameEn>Limited Liability Company</nameEn>
+                </legalStatus>
+                <registrationStatus code="ACTIVE">
+                  <nameAr>نشط</nameAr>
+                  <nameEn>Active</nameEn>
+                </registrationStatus>
+                <registrationDate>2007-04-24</registrationDate>
+                <subjectToForeignInvestment>NO</subjectToForeignInvestment>
+              </company>
+            </investor>
+            <investor>
+              <isEstablishment>NO</isEstablishment>
+              <designation code="LL_PARTNER">
+                <nameAr>شريك محدود المسؤولية</nameAr>
+                <nameEn>Limited Liability Partner</nameEn>
+              </designation>
+              <numberOfShares>45000</numberOfShares>
+              <registrationDate>2017-12-19</registrationDate>
+              <person>
+                <idNumber>60686405</idNumber>
+                <passport>
+                  <number>Z3130200</number>
+                  <issueCountry code="356">
+                    <nameAr>الهند</nameAr>
+                    <nameEn>India</nameEn>
+                  </issueCountry>
+                  <issueDate>2015-07-01</issueDate>
+                </passport>
+                <dateOfBirth>1959-07-19</dateOfBirth>
+                <nameAr>سنديب فاسنت باتكال</nameAr>
+                <nameEn>SANDEEP VASANT BHATKAL</nameEn>
+                <gender>MALE</gender>
+                <nationality code="356">
+                  <nameAr>الهند</nameAr>
+                  <nameEn>India</nameEn>
+                </nationality>
+              </person>
+            </investor>
+          </investors>
+          <signatories>
+            <signatory>
+              <idNumber>2133964</idNumber>
+              <passport>
+                <number>MT7165326</number>
+                <issueCountry code="512">
+                  <nameAr>سلطنة عمان</nameAr>
+                  <nameEn>Sultanate of Oman</nameEn>
+                </issueCountry>
+                <issueDate>2015-12-13</issueDate>
+              </passport>
+              <dateOfBirth>1965-01-01</dateOfBirth>
+              <nameAr>أحمد علي محمد العريمي</nameAr>
+              <nameEn>AHMED ALI MOHAMED AL ARAIMI</nameEn>
+              <gender>MALE</gender>
+              <nationality code="512">
+                <nameAr>سلطنة عمان</nameAr>
+                <nameEn>Sultanate of Oman</nameEn>
+              </nationality>
+              <designation code="AUTH_MGR">
+                <nameAr>مدير مفوض</nameAr>
+                <nameEn>Authorized Manager</nameEn>
+              </designation>
+              <hasFullAuthority>YES</hasFullAuthority>
+              <hasTechnicalAuthority>NO</hasTechnicalAuthority>
+              <hasFinancialAuthority>NO</hasFinancialAuthority>
+              <hasAdministrativeAuthority>NO</hasAdministrativeAuthority>
+              <signatureType code="SOLE">
+                <nameAr>منفرد</nameAr>
+                <nameEn>Sole</nameEn>
+              </signatureType>
+              <signatoryStartDate>2010-05-29</signatoryStartDate>
+            </signatory>
+            <signatory>
+              <idNumber>60686405</idNumber>
+              <passport>
+                <number>Z3130200</number>
+                <issueCountry code="356">
+                  <nameAr>الهند</nameAr>
+                  <nameEn>India</nameEn>
+                </issueCountry>
+                <issueDate>2015-07-01</issueDate>
+              </passport>
+              <dateOfBirth>1959-07-19</dateOfBirth>
+              <nameAr>سنديب فاسنت باتكال</nameAr>
+              <nameEn>SANDEEP VASANT BHATKAL</nameEn>
+              <gender>MALE</gender>
+              <nationality code="356">
+                <nameAr>الهند</nameAr>
+                <nameEn>India</nameEn>
+              </nationality>
+              <designation code="AUTH_PRT">
+                <nameAr>شريك مفوض</nameAr>
+                <nameEn>Authorized Partner</nameEn>
+              </designation>
+              <hasFullAuthority>YES</hasFullAuthority>
+              <hasTechnicalAuthority>NO</hasTechnicalAuthority>
+              <hasFinancialAuthority>NO</hasFinancialAuthority>
+              <hasAdministrativeAuthority>NO</hasAdministrativeAuthority>
+              <signatureType code="SOLE">
+                <nameAr>منفرد</nameAr>
+                <nameEn>Sole</nameEn>
+              </signatureType>
+              <signatoryStartDate>2017-12-19</signatoryStartDate>
+            </signatory>
+            <signatory>
+              <idNumber>101254788</idNumber>
+              <passport>
+                <number>K7118585</number>
+                <issueCountry code="356">
+                  <nameAr>الهند</nameAr>
+                  <nameEn>India</nameEn>
+                </issueCountry>
+                <issueDate>2012-08-24</issueDate>
+              </passport>
+              <dateOfBirth>1964-09-18</dateOfBirth>
+              <nameAr>ناراسيمحه مورثي سيتومدفن</nameAr>
+              <nameEn>NARASIMHA MOORTHY SETHUMADAVAN</nameEn>
+              <gender>MALE</gender>
+              <nationality code="356">
+                <nameAr>الهند</nameAr>
+                <nameEn>India</nameEn>
+              </nationality>
+              <designation code="AUTH_MGR">
+                <nameAr>مدير مفوض</nameAr>
+                <nameEn>Authorized Manager</nameEn>
+              </designation>
+              <hasFullAuthority>NO</hasFullAuthority>
+              <hasTechnicalAuthority>NO</hasTechnicalAuthority>
+              <hasFinancialAuthority>NO</hasFinancialAuthority>
+              <hasAdministrativeAuthority>YES</hasAdministrativeAuthority>
+              <signatureType code="SOLE">
+                <nameAr>منفرد</nameAr>
+                <nameEn>Sole</nameEn>
+              </signatureType>
+              <signatoryStartDate>2017-03-06</signatoryStartDate>
+            </signatory>
+          </signatories>
+          <auditors></auditors>
+          <mortgages>
+            <mortgage>
+              <contractNumber>MRG1002229</contractNumber>
+              <contractDate>2017-10-03+04:00</contractDate>
+              <amount>280000</amount>
+              <currency>OMR</currency>
+              <mortgageType code="NORMAL">
+                <nameAr>طبيعي</nameAr>
+                <nameEn>Normal</nameEn>
+              </mortgageType>
+              <mortgageGrade code="GRADE_1">
+                <nameAr>الدرجة الأولى</nameAr>
+                <nameEn>1st</nameEn>
+              </mortgageGrade>
+              <mortgagee>
+                <company>
+                  <crNumber>1263366</crNumber>
+                  <companyNameArabic>الشركه الوطنيه للتمويل</companyNameArabic>
+                  <companyNameWithLegalArabic>الشركه الوطنيه للتمويل ش م ع ع</companyNameWithLegalArabic>
+                  <country code="512">
+                    <nameAr>سلطنة عمان</nameAr>
+                    <nameEn>Sultanate of Oman</nameEn>
+                  </country>
+                  <legalStatus code="PJSC">
+                    <nameAr>شركة مساهمة عمانية عامة</nameAr>
+                    <nameEn>Public Joint Stock Company</nameEn>
+                  </legalStatus>
+                  <registrationStatus code="ACTIVE">
+                    <nameAr>نشط</nameAr>
+                    <nameEn>Active</nameEn>
+                  </registrationStatus>
+                  <registrationDate>1987-09-14</registrationDate>
+                  <establishmentDate>1986-01-01</establishmentDate>
+                  <subjectToForeignInvestment>YES</subjectToForeignInvestment>
+                </company>
+              </mortgagee>
+              <mortgageDuration>60</mortgageDuration>
+              <contractAuthenticator code="CA_MOCI">
+                <nameAr>وزارة التجارة و الصناعة</nameAr>
+                <nameEn>MOCI</nameEn>
+              </contractAuthenticator>
+              <coverageType code="FULL">
+                <nameAr>الكل</nameAr>
+                <nameEn>Full</nameEn>
+              </coverageType>
+              <registrationDate>2017-10-03+04:00</registrationDate>
+            </mortgage>
+          </mortgages>
+        </companyOverview>
+      </wsResponseBody>
+    </ns2:companyOverviewResponse>
+  </soapenv:Body>
+</soapenv:Envelope>

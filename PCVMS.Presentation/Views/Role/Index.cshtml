@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Add Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.Web.Roles_Modle
+<form class="ui form" action="Role/Index" method="post">
+    <div>
+        <div class="col-md-6"> 
+            @Html.LabelFor(model => model.NameEn)
+
+            @Html.TextBoxFor(model => model.NameEn, new { htmlAttributes = new { @class = "form-control" } })
+          
+
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.PCVMS_Permission_MasterList)
+
+
+            @Html.DropDownListFor(model => model.PCVMS_Permission_MasterID, Model.PCVMS_Permission_MasterList, new { @class = "form-control" })
+        </div>
+        <div class="divider row"></div>
+        <div class="divider row"></div>
+                <div class="col-md-6">
+                    <button name="button" value="Save" type="submit" class="btn btn-success btn-lg">Save</button>
+
+                </div>
+
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th style="width:20px">Number</th>
+                            <th>Name</th>
+                        </tr>
+                        @for (int i = 0; i < Model.RoleList.Count; i++)
+                        {
+                            var item = Model.RoleList[i];
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td>@item.NameEn</td>
+                            </tr>
+                        }
+                </table>
+            </div>
+</form>
+
+

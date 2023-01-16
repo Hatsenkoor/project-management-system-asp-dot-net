@@ -1,0 +1,14 @@
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.csprojAssemblyReference.cache
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.AssemblyInfoInputs.cache
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.AssemblyInfo.cs
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\PCVM.MsSql.deps.json
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\PCVM.MsSql.dll
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\PCVM.MsSql.pdb
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\PCVM.Business.dll
+D:\Softwares\Final\WF.Sample.MsSql\bin\Debug\netstandard2.0\PCVM.Business.pdb
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.csproj.CopyComplete
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.dll
+D:\Softwares\Final\WF.Sample.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.pdb
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.csprojAssemblyReference.cache
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.AssemblyInfoInputs.cache
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netstandard2.0\PCVM.MsSql.AssemblyInfo.cs

@@ -1,0 +1,865 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+
+@{
+    ViewData["Title"] = "Residential";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+}
+
+@model PCVMS.Model.Web.PropertyModel
+
+    <div class="main-card mb-3 card">
+        <div class="card-header-custom  bg-moi-green">
+            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+            @Localizer["property-valuation-draft"]
+        </div>
+
+        <div class="card-body">
+            <div class="form-row">
+
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="RoyalDecree">
+                            @Localizer["project name"]
+
+                        </label>
+                        <div class="input-group">
+                            <select id="ealist" class="form-control">
+                                <option>@Localizer["batna road"]</option>
+                                <option>@Localizer["batna road"]</option>
+                                <option>@Localizer["rasal jinz tortile resort"]</option>
+                                <option>@Localizer["rasal jinz tortile resort"]</option>
+                            </select>
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName">@Localizer["property name"]</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <select id="ealist" class="form-control">
+                                    <option selected>@Localizer["select property name"]</option>
+                                    <option>@Localizer["building no 204"]</option>
+                                    <option>@Localizer["barka farm house"]</option>
+
+                                </select>
+                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName">@Localizer["krooki"]</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <select id="ealist" class="form-control">
+                                    <option selected>@Localizer["select krooki no"]</option>
+                                    <option>@Localizer["07-44-028-01-1229"]</option>
+                                    <option>@Localizer["07-44-028-01-1228"]</option>
+
+                                </select>
+                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName">@Localizer["valuation-draft-status"]</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <select id="ealist" class="form-control">
+                                    <option selected>@Localizer["select value"]</option>
+                                    <option>Forward to EA Pending</option>
+                                    <option>Forwarded to EA</option>                                   
+                                </select>
+                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="position-relative form-group">
+                        <label for="ProjectName" style="visibility:hidden">@Localizer["cr"]</label>
+                        <div class="widget-content-left">
+                            <div class="input-group">
+                                <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                    <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <table style="width: 100%;" id="example2" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["project name"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["property name"]</th>
+                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["krooki"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["valuation-draft-status"]</th>
+                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td class="text-center">al batinah coastal road</td>
+                        <td class="text-center">Building No 204</td>
+                        <td class="text-center text-muted">07-44-028-01-1226</td>
+                        <td class="text-center">Forward to EA Pending</td>
+                        <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i></div></td>
+                    </tr>
+                    <tr>
+
+                        <td class="text-center">salalah road</td>
+
+                        <td class="text-center">Building No 205</td>
+                        <td class="text-center text-muted">07-44-028-01-1228</td>
+                        <td class="text-center">Forward to EA Pending</td>
+                        <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i></div></td>
+                    </tr>
+                    <tr>
+
+                        <td class="text-center">al batinah coastal road</td>
+                        <td class="text-center">Barka Farm house</td>
+                        <td class="text-center text-muted">07-44-028-01-1229</td>
+                        <td class="text-center">Forward to EA Pending</td>
+<td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i></div></td>
+                    </tr>
+                    <tr>
+
+                        <td class="text-center">salalah road</td>
+
+                        <td class="text-center">Sohar Farm house</td>
+                        <td class="text-center text-muted">07-44-028-01-1227</td>
+                        <td class="text-center">Forward to EA Pending</td>
+                        <td class="text-center" id='tdAction' name='tdAction'><div class='position-relative'><i class="metismenu-icon lnr-book" style="cursor: pointer;margin-left: 10px;" title="view"></i></div></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+       
+
+    </div>
+
+    <div class="main-card mb-3 card">
+
+        <div class="card-header-custom  bg-moi-green">
+            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+            @Localizer["property survey details"]
+        </div>
+        <div class="form-row">
+
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label for="RoyalDecree">
+                        @Localizer["project name"]
+
+                    </label>
+                    <div class="input-group">
+                        <input readonly="readonly" name="txt_stage3_vehicletype" value="al batinah coastal road" id="RoyalDecree" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label for="ProjectName">@Localizer["property name"]</label>
+                    <div class="widget-content-left">
+
+                        <div class="input-group">
+                            <input readonly="readonly" name="txt_stage3_vehicletype" value="Majoon Dairy" id="RoyalDecree" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label for="ProjectName">@Localizer["krooki"]</label>
+                    <div class="widget-content-left">
+
+                        <div class="input-group">
+                            <input readonly="readonly" name="txt_stage3_vehicletype" value="07-44-028-01-1229" id="RoyalDecree" type="text" class="form-control">
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="position-relative form-group">
+                    <label for="PropertyNumber">@Localizer["property no"] </label>
+
+                    <div class="input-group">
+                        <input readonly="readonly" name="PropertyNumber" value="07-44-028-01-1229-00001" id="PropertyNumber" type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-home btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="smartwizard-property-sitevisit-cf" class="forms-wizard-vertical">
+
+            <ul class="forms-wizard">
+
+                <li>
+                    <a href="#step-12">
+                        <em><i class="header-icon pe-7s-user icon-gradient bg-moi-green"> </i></em><span>@Localizer["property details"]</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#step-22">
+                        <em><i class="header-icon pe-7s-compass icon-gradient bg-moi-green"> </i></em><span>@Localizer["land price"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-32">
+                        <em><i class="header-icon pe-7s-home icon-gradient bg-moi-green"> </i></em><span>@Localizer["building material price"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-42">
+                        <em><i class="header-icon pe-7s-home icon-gradient bg-moi-green"> </i></em><span>@Localizer["walls / parapet / shades price"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-52">
+                        <em><i class="header-icon pe-7s-home icon-gradient bg-moi-green"> </i></em><span>@Localizer["trees / crops price"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-62">
+                        <em><i class="header-icon pe-7s-home icon-gradient bg-moi-green"> </i></em><span>@Localizer["water & storage price"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-72">
+                        <em><i class="header-icon pe-7s-home icon-gradient bg-moi-green"> </i></em><span>@Localizer["miscellaneous items price"]</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#step-82">
+                        <em><i class="header-icon pe-7s-home icon-gradient bg-moi-green"> </i></em><span>@Localizer["rent / tenant price"]</span>
+                    </a>
+                </li>
+
+               
+                <li>
+                    <a href="#step-92">
+                        <em><i class="header-icon pe-7s-check icon-gradient bg-moi-green"> </i></em><span>@Localizer["forward-to-ea"]</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="form-wizard-content">
+                <div id="step-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                            @Localizer["property details"]
+                        </div>
+
+                        <div id="smartwizard-valuation-draft-12">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">@Localizer["project name"]</label>
+                                            <div class="widget-content-left">
+                                                <div class="input-group">
+                                                    <input name="txt_stage3_vehicletype" value="al batinah coastal road" id="RoyalDecree" type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyName" id="lbl_stage3_name">@Localizer["property owner name"]</label>
+                                            <input type="hidden" id="PropertyId" />
+
+                                            <div class="input-group">
+                                                <input name="PropertyName" value="Ahmed Al Waihabi" id="PropertyName" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-home btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyType" id="lbl_stage3_name">@Localizer["property type"]</label>
+
+                                            <div class="input-group">
+                                                <select class="form-control">
+                                                    <option selected="selected">Residential</option>
+                                                    <option>Commercial</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-home btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="PrpertyCardId">@Localizer["krooki"]</label>
+
+                                            <div class="input-group">
+                                                <input name="PrpertyCardId" value="07-44-028-01-1229" id="PrpertyCardId" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-id btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyNumber">@Localizer["property no"] </label>
+
+                                            <div class="input-group">
+                                                <input name="PropertyNumber" value="07-44-028-01-1229-00001" id="PropertyNumber" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-home btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="exampleEmail2" id="lbl_stage3_name">@Localizer["governorates"]</label>
+                                            <div class="input-group">
+                                                <select name="Wilayat" id="Wilayat" type="text" class="form-control">
+                                                    <option selected>Muscat</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="Wilayat" id="lbl_stage3_name">@Localizer["wilayat"]</label>
+
+                                            <div class="input-group">
+                                                <select name="Wilayat" id="Wilayat" type="text" class="form-control">
+                                                    <option selected>Muscat</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="Village" id="lbl_stage3_name">@Localizer["municipality"]</label>
+                                            <div class="input-group">
+                                                <select name="Village" id="Village" type="text" class="form-control">
+                                                    <option selected>Bosher</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="Village" id="lbl_stage3_name">@Localizer["village"]</label>
+                                            <div class="input-group">
+                                                <select name="Village" id="Village" type="text" class="form-control">
+                                                    <option selected>Al Azaiba</option>
+                                                </select>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyEmail">@Localizer["email"]</label>
+
+                                            <div class="input-group">
+                                                <input readonly="readonly" name="PropertyEmail" value="harman@mesecit.com" id="PropertyEmail" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-mail btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyLandline">@Localizer["landline"]</label>
+
+                                            <div class="input-group">
+                                                <input readonly="readonly" name="PropertyLandline" value="24138403" id="PropertyLandline" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-phone btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyMobile">@Localizer["mobile"] </label>
+
+                                            <div class="input-group">
+                                                <input readonly="readonly" name="PropertyMobile" value="93894475" id="PropertyMobile" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-phone btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="PropertyRemark">@Localizer["remark"]</label>
+
+                                            <div class="input-group">
+                                                <input name="PropertyRemark" id="PropertyRemark" placeholder="any remark, please enter here..." type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="step-22">
+                    <div id="smartwizard-valuation-draft-22" class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                            @Localizer["land price"]
+                        </div>
+                        <div class="card-body">
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["land-description"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["area"] sq.m</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Affected land area</td>
+                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Affected Build Area</td>
+                                        <td style="text-align: right;">150.00</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="3">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-32">
+                    <div id="smartwizard-valuation-draft-32" class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                            @Localizer["building material price"]
+                        </div>
+                        <div class="card-body">
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["building material detail"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["measurement"] sq.m</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Wall Finishing</td>
+                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Roof Finishing</td>
+                                        <td style="text-align: right;">150.00</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="3">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-42">
+                    <div id="smartwizard-valuation-draft-42" class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                            @Localizer["walls / parapet / shades price"]
+                        </div>
+                        <div class="card-body">
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["walls/parapet/shades"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["measurement"] sq.m</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Walls</td>
+                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Parapet</td>
+                                        <td style="text-align: right;">150.00</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="3">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-52">
+                    <div id="smartwizard-valuation-draft-52" class="main-card mb-3 card">
+
+                        <div class="card-body">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                @Localizer["trees price"]
+                            </div>
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["trees detail"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["size"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["number"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Palm Tree</td>
+                                        <td>Large</td>
+                                        <td style="text-align: right;">100</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Date Tree</td>
+                                        <td>Small</td>
+                                        <td style="text-align: right;">150</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="4">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                @Localizer["crops price"]
+                            </div>
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["crops detail"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["measurement"] sq.m</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Wheat</td>
+                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Rice</td>
+                                        <td style="text-align: right;">150.00</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="3">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-62">
+                    <div id="smartwizard-valuation-draft-62" class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                            @Localizer["water-storage-price"]
+                        </div>
+                        <div class="card-body">
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["water & storage detail"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["quantity"] sq.m</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Well</td>
+                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Water Tank</td>
+                                        <td style="text-align: right;">150.00</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="3">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-72">
+                    <div id="smartwizard-valuation-draft-72" class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                            @Localizer["miscellaneous items price"]
+                        </div>
+                        <div class="card-body">
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["itemcode"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["item detail"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["item condition"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["number"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["per-sqm-price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Item1</td>
+                                        <td>used</td>
+                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: right;">5.000</td>
+                                        <td style="text-align: right;">500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">2</td>
+                                        <td>Item 2</td>
+                                        <td>new</td>
+                                        <td style="text-align: right;">150.00</td>
+                                        <td style="text-align: right;">10.000</td>
+                                        <td style="text-align: right;">1500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="4">Two Thousand Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">2000.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-82">
+                    <div id="smartwizard-valuation-draft-82" class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                            @Localizer["rent / tenant detail"]
+                        </div>
+                        <div class="card-body">
+                            <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["item no"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["tenant name"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["property type"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["no. of months"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["monthly price"] (OMR)</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["total price"] (OMR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Harmanjeet Singh</td>
+                                        <td>Residential</td>
+                                        <td style="text-align: right;">12</td>
+                                        <td style="text-align: right;">100.000</td>
+                                        <td style="text-align: right;">1200.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td>Ahmed Al Amri</td>
+                                        <td>Commericial</td>
+                                        <td style="text-align: right;">12</td>
+                                        <td style="text-align: right;">300.000</td>
+                                        <td style="text-align: right;">3600.000</td>
+                                    </tr>
+
+                                </tbody>
+                                <tfoot class="moi-price-footer">
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Total</th>
+                                        <th rowspan="1" colspan="4">Four Thousand Eight Hundred Omani rials</th>
+                                        <th rowspan="1" colspan="1" style="text-align: right;">4800.000</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+               
+                <div id="step-92">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                            @Localizer["forwarded-to-ea"]
+                        </div>
+                        <div class="no-results">
+
+                            <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                                <i class="metismenu-icon lnr-hourglass" style="cursor: pointer;font-size:2.5rem;line-height: 1.75;" title="wait for approval"></i>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleEmail2" id="lbl_stage3_name"><span class="text-danger">*</span>@Localizer["property name"]</label>
+                                        <div class="input-group">
+                                            <select id="ealist" class="form-control">
+                                                <option selected>@Localizer["select property name"]</option>
+                                                <option>@Localizer["building no 204"]</option>
+                                                <option>@Localizer["barka farm house"]</option>
+
+                                            </select>
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                            <div class="results-title">
+                                <div class="position-relative form-group">
+                                    <label for="PrpertyCardId">@Localizer["remark"]</label>
+
+                                    <div class="input-group">
+                                        <input value="enter remal here..." name="PrpertyCardId" id="PrpertyCardId" type="text" class="form-control">
+                                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="mt-3 mb-3"></div>
+                            <div class="text-center">
+                                <button class="btn-shadow btn-wide btn btn-moi-green btn-lg">@Localizer["forwarded-to-ea"] </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="~/AppJs/ResidencialProperty.js"></script>
+

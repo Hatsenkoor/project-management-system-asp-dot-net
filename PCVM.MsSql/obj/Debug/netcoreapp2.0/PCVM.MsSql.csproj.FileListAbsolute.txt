@@ -1,0 +1,57 @@
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.deps.json
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.dll
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.dll
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.dll
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.pdb
+D:\Softwares\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.pdb
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csprojAssemblyReference.cache
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfoInputs.cache
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfo.cs
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CoreCompileInputs.cache
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CopyComplete
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.dll
+D:\Softwares\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.deps.json
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.dll
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.dll
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.dll
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.pdb
+C:\Final06272020\Final\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.pdb
+C:\Final06272020\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csprojAssemblyReference.cache
+C:\Final06272020\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfoInputs.cache
+C:\Final06272020\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfo.cs
+C:\Final06272020\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CopyComplete
+C:\Final06272020\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.dll
+C:\Final06272020\Final\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.deps.json
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.dll
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.dll
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.dll
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.pdb
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.pdb
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.AssemblyReference.cache
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfoInputs.cache
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfo.cs
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CoreCompileInputs.cache
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CopyComplete
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.dll
+C:\Pesticide Design pcvms final\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.deps.json
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.dll
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.MsSql.pdb
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.dll
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.dll
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVM.Business.pdb
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\bin\Debug\netcoreapp2.0\PCVMS.Model.pdb
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.AssemblyReference.cache
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.GeneratedMSBuildEditorConfig.editorconfig
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfoInputs.cache
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.AssemblyInfo.cs
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CoreCompileInputs.cache
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.csproj.CopyComplete
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.dll
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVM.MsSql\obj\Debug\netcoreapp2.0\PCVM.MsSql.pdb

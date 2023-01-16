@@ -1,0 +1,102 @@
+﻿html {
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url("../images/body-bg.jpeg") repeat left top fixed
+}
+.btn-padding {
+    padding-top: 0.375rem;
+    padding-right: 0.4rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.4rem;
+}
+.card-header-custom {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: .625rem;
+    padding-left:.5rem;
+    height: 2.0rem;
+    font-size: 1rem;
+}
+
+.app-main__inner_custom {
+    flex: 1
+}
+
+.app-main__inner_contactus {
+    flex: 1
+}
+
+.app-main__inner_expertise {
+    flex: 1
+}
+
+.app-main__inner_journey {
+    flex: 1
+}
+
+.app-main__inner_mobile {
+    flex: 1
+}
+
+.app-main__inner_project {
+    flex: 1
+}
+
+.app-main__inner_custom {
+    background-image: url('../images/food.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5F0E1;
+  
+}
+
+.app-main__inner_journey {
+    background-image: url(images/journey.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5F0E1;
+}
+
+.app-main__inner_contactus {
+    background-image: url(images/contactus.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5F0E1;
+}
+
+.app-main__inner_expertise {
+    background-image: url(images/expertise.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5F0E1;
+}
+
+.app-main__inner_mobile {
+    background-image: url(images/mobile.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5F0E1;
+}
+
+.app-main__inner_project {
+    background-image: url(images/project.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5F0E1;
+}
+
+@media only screen and (min-width: 692px) {
+    img.img-fluid {
+        display: none;
+    }
+}
+
+.icon-pointer {
+    cursor: pointer;
+}

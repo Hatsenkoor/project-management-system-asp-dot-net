@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.Web.RolePermissionModel
+    <form class="ui form" method="post">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.RoleId)
+
+
+            @Html.DropDownListFor(model => model.RoleId, Model.RoleList, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.PermissionId)
+
+
+            @Html.DropDownListFor(model => model.PermissionId, Model.PermissionList, new { @class = "form-control" })
+        </div>
+
+       
+        <div class="col-md-6">
+            <button name="button" value="Submit" class="btn btn-success btn-lg">Assing Permission</button>
+            <h2>Assing Permission to Role</h2>
+        </div>
+    </form>
+

@@ -1,0 +1,843 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+
+@{
+    ViewData["Title"] = "Security";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+}
+
+@model PCVMS.Model.Web.PCVMS_User_Model
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-header  bg-happy-green">
+                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                    <h3>@Localizer["user-group-role-permission(registration)"]</h3>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+
+                            <div id="smartwizard">
+                                <ul class="forms-wizard" id="securitystage" name="securitystage">
+                                    <li data-stage="CreateUser-stage-1">
+                                        <a href="#CreateUserStep-1">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["create user"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="CreateRole-stage-2">
+                                        <a href="#CreateRoleStep-2">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["create role"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="AssignRoleToUser-stage-3">
+                                        <a href="#AssignRoleToUserStep-3">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["assign role to group"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="RoleToPermission-stage-4">
+                                        <a href="#RoleToPermissionStep-4">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["global role to permission"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="CreateScheme-stage-5">
+                                        <a href="#CreateSchemeStep-5">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["create scheme"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="ProjectScheme-stage-6">
+                                        <a href="#ProjectSchemeStep-6">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["project role"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="SchemePermission-stage-7">
+                                        <a href="#SchemePermissionStep-7">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["scheme permission"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="CreateUserGroup-stage-8">
+                                        <a href="#CreateUserGroupStep-8">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["create user group"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="AssignUserGroup-stage-9">
+                                        <a href="#AssignUserGroupStep-9">
+                                            <em><i class="header-icon pe-7s-note icon-gradient bg-happy-green"> </i></em><span>@Localizer["assign user group"]</span>
+                                        </a>
+                                    </li>
+                                    <li data-stage="finish-stage-10">
+                                        <a href="#step-10">
+                                            <em><i class="header-icon pe-7s-like2 icon-gradient bg-happy-green"> </i></em><span>@Localizer["finish"]!!</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <div class="form-wizard-content">
+                                    <div id="CreateUserStep-1">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["create new user"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["user name"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="UserNameEn" id="UserNameEn" placeholder="user name here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-add-user btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["national id"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="Password" id="UserPassword" placeholder="National ID here..." type="password" class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["confirm national id"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="Password" id="Confirm" placeholder="National ID here..." type="password" class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["email"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="Email" id="Email" placeholder="Email here..." type="email" class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-mail btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["mobile"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="Mobile" id="Mobile" placeholder="mobile number here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-phone btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-warning"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>@Localizer["de activate"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["delete"]</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="main-card mb-3 card">
+                                            <div class="main-card mb-3 card">
+                                                <div class="no-gutters row">
+                                                    <div class="col-md-2">
+                                                        <div class="widget-content">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-right ml-0 mr-3">
+                                                                    <div class="widget-heading text-success">@Localizer["search filter"]</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="widget-content">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-right ml-2 mr-3">
+                                                                    <div class="widget-heading">@Localizer["national id"]</div>
+                                                                </div>
+                                                                <div class="widget-content-left">
+                                                                   
+
+                                                                        <div class="input-group">
+                                                                            <input name="txt-filter-english" id="txt-filter-english" type="text" placeholder="search text here..." class="form-control">
+                                                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-search btn-icon-wrapper"> </i></span></div>
+                                                                        </div>
+                                                                 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="widget-content">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-right ml-0 mr-4">
+                                                                    <div class="widget-heading">@Localizer["mobile"]</div>
+                                                                </div>
+                                                                <div class="widget-content-left">
+                                                                   
+                                                                        <div class="input-group">
+                                                                            <input name="txt-filter-arabic" id="txt-filter-arabic" type="text" placeholder="search text here..." class="form-control">
+                                                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-search btn-icon-wrapper"> </i></span></div>
+                                                                        </div>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="widget-content">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-right ml-0 mr-3">
+                                                                    <div class="widget-heading">
+                                                                        <button id="SearchTransaction" name="SearchTransaction" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success block-page-btn-example-3">
+                                                                            <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["search"]
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <table style="width: 100%;" id="tbl-UserList" name="tbl-UserList" class="table table-hover table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+                                                            <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> UserName</th>
+                                                            <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Email</th>
+                                                            <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                    <div id="CreateRoleStep-2">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["create new project role"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["project role"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="UserNRoles_Modle_NameEnameEn" id="Roles_Modle_NameEn" placeholder="project role here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-add-user btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row" style="visibility:hidden">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["permission"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.Roles_Modle.PCVMS_Permission_MasterID, Model.Roles_Modle.PCVMS_Permission_MasterList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="SaveRole" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-warning"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>@Localizer["de activate"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["delete"]</button>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-RoleList" name="tbl-RoleList" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["role name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <div id="AssignRoleToUserStep-3">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["assign role to group"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["group name"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.AssignRoleModel.UserId, Model.AssignRoleModel.UserList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["role to assign"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.AssignRoleModel.RoleId, Model.AssignRoleModel.RoleList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*<div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["User Group"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.AssignRoleModel.UserGroupId, Model.PCVMS_User_Group_Name_Model.PCVMS_User_Group_NameList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>*@
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["start date"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="FromDate" id="FromDate" placeholder="start date here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-add-user btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["end date"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="EndDate" id="EndDate" placeholder="start date here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-add-user btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="SaveUserRole" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="SaveUserRole" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["remove"]</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-UseRole" name="tbl-UseRole" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                     
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["role name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                          
+                                        </div>
+                                    </div>
+                                    <div id="RoleToPermissionStep-4">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["global role to permission"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["global role"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.RolePermissionModel.RoleId, Model.RolePermissionModel.RoleList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["permission"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.RolePermissionModel.PermissionId, Model.RolePermissionModel.PermissionList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="RolePermission" name="RolePermission" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="RolePermission" name="RolePermission" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["remove"]</button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-RolePermission" name="tbl-RolePermission" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["permission name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div id="CreateSchemeStep-5">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["create new scheme"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["scheme name"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="SchemeName" id="SchemeName" placeholder="scheme name here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-add-user btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="CreateScheme" name="CreateScheme" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-warning"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>@Localizer["de activate"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["delete"]</button>
+
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-SchemeList" name="tbl-SchemeList" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["scheme name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+                                    <div id="ProjectSchemeStep-6">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["project role"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["scheme name"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.PCVMS_Project_Model.ProjectId, Model.PCVMS_Project_Model.ProjectList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["project role"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.PCVMS_Project_Model.SchemeId, Model.PCVMS_Project_Model.SchemeList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*<div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["role name"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.PCVMS_Project_Model.RoleId, Model.PCVMS_Project_Model.RoleList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>*@
+
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="AssignScheme" name="AssignScheme" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="AssignScheme" name="AssignScheme" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["remove"]</button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-ProjectScheems" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["scheme name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["project role"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div id="SchemePermissionStep-7">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["scheme permission"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["scheme name"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.PCVMS_Project_Model.PermissionSchemeId, Model.PCVMS_Project_Model.SchemeList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["permission"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.PCVMS_Project_Model.PermissionId, Model.PCVMS_Project_Model.PermissionList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="SchemePermission" name="SchemePermission" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="SchemePermission" name="SchemePermission" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["remove"]</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-ScheemPermission" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["scheme name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div id="CreateUserGroupStep-8">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["create new user group"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="position-relative form-group"><label for="Username" class="">@Localizer["user group name"]</label></div>
+                                                        </div>
+                                                        <div class="col-md-9">
+
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    <input name="UserGroupNameEn" id="UserGroupNameEn" placeholder="user name here..." class="form-control">
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-add-user btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="CreateUserGroup" name="CreateUserGroup" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-warning"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>@Localizer["de activate"]</button>
+                                                <button id="CreateUser" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["delete"]</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-UserGroupName" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Group Name</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div id="AssignUserGroupStep-9">
+
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-header  bg-happy-green">
+                                                <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                                @Localizer["assign user group"]
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-12">
+                                                    <div class="divider row"></div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["user name"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => Model.PCVMS_User_Group_Name_Model.UserId, Model.PCVMS_User_Group_Name_Model.UserList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <label for="examplePassword" class="">@Localizer["user group name"]</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="position-relative form-group">
+
+                                                                <div class="input-group">
+                                                                    @Html.DropDownListFor(model => model.PCVMS_User_Group_Name_Model.GroupId, Model.PCVMS_User_Group_Name_Model.PCVMS_User_Group_NameList, new { @class = "form-control" })
+                                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-block text-right card-footer">
+                                                <button id="btnClear" name="btnClear" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-info"><i class="pe-7s-trash btn-icon-wrapper"> </i>@Localizer["clear"]</button>
+                                                <button id="AssignGroup" name="AssignGroup" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["save"]</button>
+                                                <button id="AssignGroup" name="AssignGroup" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-danger"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Localizer["remove"]</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width: 100%;" id="tbl-UserGroupList" class="table table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> @Localizer["s. no"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Localizer["group name"]</th>
+                                                        <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="step-10">
+                                        <div class="no-results">
+                                            <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                                                <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                                                <span class="swal2-success-line-tip"></span>
+                                                <span class="swal2-success-line-long"></span>
+                                                <div class="swal2-success-ring"></div>
+                                                <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                                                <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+                                            </div>
+                                            <div class="results-subtitle mt-4">@Localizer["finished"]!</div>
+                                            <div class="results-title" id="last-stage-message" name="last-stage-message">@Localizer["click the finish button to complete the process"]!</div>
+                                            <div class="mt-3 mb-3"></div>
+                                            <div class="text-center">
+                                                <button class="btn-shadow btn-wide btn btn-success btn-lg" id="btn-finish" name="btn-finish">@Localizer["finish"]</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+                            <div class="clearfix">
+                                <button type="button" id="prev-btn" class="mb-2 mr-2 btn-icon float-left btn-shadow btn-hover-shine btn-dashed btn btn-outline-secondary"><i class="pe-7s-prev btn-icon-wrapper"> </i>@Localizer["previous"]</button>
+                                <button type="button" id="next-btn" class="mb-2 mr-2 btn-icon float-right btn-shadow btn-hover-shine btn-dashed btn btn-outline-focus">@Localizer["next"]    <i class="pe-7s-next btn-icon-wrapper"> </i></button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+            <script src="~/AppJs/Admin.js"></script>

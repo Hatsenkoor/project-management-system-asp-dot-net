@@ -1,0 +1,77 @@
+﻿@model PCVMS.Model.Web.AssignRoleModel
+@{
+    ViewData["Title"] = "Index";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+    <form class="ui form" method="post">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.RoleId)
+
+
+
+            @Html.DropDownListFor(model => model.RoleId, Model.RoleList, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.UserId)
+
+
+            @Html.DropDownListFor(model => model.UserId, Model.UserList, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.RoleGroupId)
+
+
+            @Html.DropDownListFor(model => model.RoleGroupId, Model.RoleGroupList, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            <label for="FromDate">From date:</label>
+
+            @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control", id = "FromDate" })
+        </div>
+        <div class="col-md-3">
+            <label for="EndDate">End date:</label>
+            @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control", id = "EndDate" })
+
+        </div>
+        <div class="divider row">
+        </div>
+        <div class="col-md-6">
+            <button name="button" value="Save" class="btn btn-success btn-lg">Save</button>
+        </div>
+    </form>
+
+    <div class="divider row"></div>
+        <form class="ui form" method="post"  action="/AssignRole/AssingUserGroup">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.RoleId)
+
+
+
+                @Html.DropDownListFor(model => model.RoleId, Model.RoleList, new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.UserGroupId)
+
+
+                @Html.DropDownListFor(model => model.UserGroupId, Model.UserGroupList, new { @class = "form-control" })
+            </div>
+
+            
+            <div class="divider row">
+            </div>
+            <div class="col-md-6">
+                <button name="button" value="Save" class="btn btn-success btn-lg">Save</button>
+            </div>
+        </form>
+        <script>
+            $(document).ready(function () {
+                $("#FromDate").attr("data-toggle", "datepicker");
+                $("#EndDate").attr("data-toggle", "datepicker");
+            });
+
+        </script>

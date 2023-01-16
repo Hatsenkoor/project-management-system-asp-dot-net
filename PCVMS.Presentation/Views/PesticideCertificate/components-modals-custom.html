@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Modals - Wide selection of modal dialogs styles and animations available.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    />
+    <meta name="description" content="Wide selection of modal dialogs styles and animations available.">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+<link href="./main.87c0748b313a1dda75f5.css" rel="stylesheet"></head>
+<body>
+   
+    <div class="app-drawer-overlay d-none animated fadeIn"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/scripts/main.87c0748b313a1dda75f5.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#loginModal').addClass('show');
+            $('#btnOne').html('Do you want to login as a Ministry of Transport - PRO');
+
+            $('#btnTwo').html('Do you want to login as a Property Owner - for your property');
+
+            $('#close').on('click', function () {
+
+                $('#loginModal').removeClass('show');
+
+            });
+
+             $('#btnOne').on('click', function () {
+
+                 alert(this.attributes["id"].value);
+
+             });
+
+             $('#btnTwo').on('click', function () {
+
+                 alert(this.attributes["id"].value);
+
+             });
+
+        });
+
+    </script>
+</body>
+</html>
+
+<!-- Modal -->
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    
+                    <i class="header-icon pe-7s-lock icon-gradient bg-royal"> </i>
+                    <h5>Login Options</h5>
+                    <button type="button" class="close" id="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="position-relative form-group">
+                                <div class="text-center"><label for="exampleZip" style="visibility:hidden">label</label></div> <div>
+                                    <button class="mb-12 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-warning"><i class="pe-7s-lock btn-icon-wrapper"> </i> <span id="btnOne"></span> <i class="pe-7s-like2 btn-icon-wrapper"> </i></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                   
+                </div>
+
+
+            </div>
+        </div>
+    </div>

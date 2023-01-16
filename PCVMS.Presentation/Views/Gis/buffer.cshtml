@@ -1,0 +1,38 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+}
+<div id="div_input">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="text_distance" class="sr-only">Distance</label>
+            <input type="text" class="form-control" id="text_distance" placeholder="Distance(m)">
+        </div>
+        <button type="button" class="btn btn-moi-gold-dark mb-2" id="btn_apply">Apply</button>
+        <button type="button" class="btn btn-moi-green mb-2" id="btn_save" style="margin-left: 5px;">Save</button>
+    </form>
+</div>
+<div id="div_option">
+    <div class="radio">
+        <label><input id="opt_category" type="radio" name="optradio" checked>Category</label>
+    </div>
+    <div class="radio">
+        <label><input id="opt_property" type="radio" name="optradio">Property</label>
+    </div>
+
+</div>
+<div id="map" class="map"></div>
+
+<div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+</div>
+
+<script src="~/AppJs/ol-ext.js"></script>
+<script src="~/AppJs/proj4.js"></script>
+<script src="~/AppJs/jsts.min.js"></script>
+<script src="~/AppJs/buffer.js"></script>

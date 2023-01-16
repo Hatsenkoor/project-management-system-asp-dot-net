@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.BusinessModel.PCVMS_Resource
+
+<h2>Index</h2>
+
+<div class="form-row">
+    <div class="col-md-12">
+        <div class="position-relative form-group">
+            <label for="txtName"> @Model.Resource["Name"]</label>
+            <input id="txtName" placeholder=@Model.Resource["Name"] type="text" class="form-control">
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-12">
+        <div class="position-relative form-group">
+            <label for="exampleAddress"> @Model.Resource["Name"]</label>
+            <input name="txtValue" id="txtKey" placeholder=@Model.Resource["Name"] type="text" class="form-control">
+        </div>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-12">
+        <div class="position-relative form-group">
+
+            <button type="submit" id="Save" class="mb-2 mr-2 btn-icon btn-shadow btn-dashed btn btn-outline-success"><i class="pe-7s-diskette btn-icon-wrapper"> </i>@Model.Resource["Name"]</button>
+        </div>
+    </div>
+</div>
+
+<div class="card-body">
+    <table style="width: 100%;" id="tbl-Resource" name="tbl-Resource" class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> @Model.Resource["Name"]</th>
+                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Model.Resource["Name"]</th>
+                <th class="bg-deep-blue" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Model.Resource["Name"]</th>
+                <th class="bg-deep-blue" style="text-align:center; width:12%"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Model.Resource["Name"]</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script src="~/AppJs/Resource.js"></script>

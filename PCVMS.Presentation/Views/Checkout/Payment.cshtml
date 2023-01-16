@@ -1,0 +1,33 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model PCVMS.Model.BusinessModel.Payment;
+
+<div id="no_record_screen">
+    <div class="swal2-icon swal2-success swal2-animate-success-icon">
+        <i class="metismenu-icon lnr-hourglass" style="cursor: pointer; font-size: 2.5rem; line-height: 1.75; margin-left: 20%;" title="wait for approval"></i>
+    </div>
+    <div class="results-title" style="font-size: 30px; color: purple;">
+
+        <div class="position-relative form-group">
+
+            <label for="PrpertyCardId">@Localizer["payment_success"]</label>
+        </div>
+        <div class="position-relative form-group">
+
+            <label for="PrpertyCardId">@Localizer["tracking_id"]:  @Model.tracking_id</label>
+
+        </div>
+        <div class="position-relative form-group">
+
+
+            <label for="PrpertyCardId">@Localizer["amount_paid"]:  @Model.amount</label>
+        </div>
+    </div>
+</div>

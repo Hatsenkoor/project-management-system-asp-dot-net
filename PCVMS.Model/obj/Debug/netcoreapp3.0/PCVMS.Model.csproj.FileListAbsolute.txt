@@ -1,0 +1,3 @@
+D:\Softwares\Final\PCVMS.Model\obj\Debug\netcoreapp3.0\PCVMS.Model.csprojAssemblyReference.cache
+D:\Softwares\Final\PCVMS.Model\obj\Debug\netcoreapp3.0\PCVMS.Model.AssemblyInfoInputs.cache
+D:\Softwares\Final\PCVMS.Model\obj\Debug\netcoreapp3.0\PCVMS.Model.AssemblyInfo.cs

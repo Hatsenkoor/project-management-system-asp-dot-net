@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:cr="http://www.investeasy.gov.om/schema/cr-2.1">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <cr:companyOverviewRequest>
+      <wsRequestHeader>
+        <requestId>#InRequestId#</requestId>
+        <requestDateTime>#InRequestDateTime#</requestDateTime>
+        <serviceRequester>#InServiceRequester#</serviceRequester>
+        <password>#InPassword#</password>
+      </wsRequestHeader>
+      <wsRequestBody>
+        <crNumber>#CrNumber#</crNumber>
+      </wsRequestBody>
+    </cr:companyOverviewRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

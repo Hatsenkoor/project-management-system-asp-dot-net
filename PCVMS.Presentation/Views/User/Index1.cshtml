@@ -1,0 +1,449 @@
+﻿
+@{
+    ViewData["Title"] = "Create user";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.Web.PCVMS_User_Model
+
+
+<ul class="forms-wizard" id="reportstage" name="reportstage">
+    <li data-stage="profile-draft-stage-1">
+        <a href="#First" onclick="Show('First');">
+            <em>1</em><span>Create User</span>
+        </a>
+    </li>
+    <li data-stage="profile-submitted-stage-2">
+        <a href="#Second" onclick="Show('Second');">
+            <em>2</em><span>Create Role</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Third" onclick="Show('Third');">
+            <em>3</em><span>Assign Role To User</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Fourth" onclick="Show('Fourth');">
+            <em>3</em><span>Role To Permission</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Fourth" onclick="Show('Fifth');">
+            <em>3</em><span>Create Scheme</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Fourth" onclick="Show('Sixth');">
+            <em>3</em><span> Project Scheme</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Fourth" onclick="Show('Seventh');">
+            <em>3</em><span>Scheme Permission</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Fourth" onclick="Show('Eighth');">
+            <em>3</em><span>Crease User Group</span>
+        </a>
+    </li>
+    <li data-stage="profile-approval-stage-3">
+        <a href="#Fourth" onclick="Show('Nineth');">
+            <em>3</em><span>Assign User Group</span>
+        </a>
+    </li>
+
+</ul>
+<div id="First">
+    <h1>Create User</h1>
+
+    <div class="col-md-6">
+        @*  @Html.TextBoxFor(model => model.Username)*@
+        <label for="ContactName">User Name:</label>
+        <input class="form-control" id="UserNameEn" size="100" type="text" name="NameEn" value="" />
+
+    </div>
+
+    <div class="col-md-6">
+        @*@Html.TextBoxFor(model => model.Password)*@
+        <label for="Password">Password:</label>
+        <input type="Password" class="form-control" id="UserPassword" size="100" name="Password" value="" />
+
+    </div>
+    <div class="col-md-6">
+        @*@Html.TextBoxFor(model => model.Password)*@
+        <label for="Confirm">Confirm:</label>
+        <input type="Password" class="form-control" id="Confirm" size="100" name="Confirm" value="" />
+
+    </div>
+    <div class="col-md-6">
+        @*@Html.TextBoxFor(model => model.Password)*@
+        <label for="Email">Email:</label>
+        <input type="text" class="form-control" id="Email" size="100" name="Email" value="" />
+
+    </div>
+    <div class="col-md-6">
+        @*@Html.TextBoxFor(model => model.Password)*@
+        <label for="Mobile">Mobile:</label>
+        <input type="text" class="form-control" id="Mobile" size="100" name="Mobile" value="" />
+
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button id="CreateUser" name="button" value="Submit" class="btn btn-success btn-lg">Create User</button>
+    </div>
+
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-UserList" name="tbl-UserList" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> UserName</th>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Email</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+<div id="Second">
+
+    @*<form class="ui form" action="Role/Index" method="post">*@
+    <div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.Roles_Modle.NameEn)
+
+
+
+            <input type="text" class="form-control" id="Roles_Modle_NameEn" size="100" name="Mobile" value="" />
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.Roles_Modle.PCVMS_Permission_MasterList)
+
+
+            @Html.DropDownListFor(model => model.Roles_Modle.PCVMS_Permission_MasterID, Model.Roles_Modle.PCVMS_Permission_MasterList, new { @class = "form-control" })
+        </div>
+        <div class="divider row"></div>
+        <div class="divider row"></div>
+        <div class="col-md-6">
+            <button id="SaveRole" value="Save" type="submit" class="btn btn-success btn-lg">Save</button>
+
+        </div>
+
+        <div class="card-body">
+            <table style="width: 100%;" id="tbl-RoleList" name="tbl-RoleList" class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+                        <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> RoleName</th>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    @*</form>*@
+</div>
+<div id="Third">
+
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.UserId)
+
+
+        @Html.DropDownListFor(model => model.AssignRoleModel.UserId, Model.AssignRoleModel.UserList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.AssignRoleModel.RoleId)
+
+
+
+        @Html.DropDownListFor(model => model.AssignRoleModel.RoleId, Model.AssignRoleModel.RoleList, new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.AssignRoleModel.UserGroupId)
+
+
+        @Html.DropDownListFor(model => model.AssignRoleModel.UserGroupId, Model.PCVMS_User_Group_Name_Model.PCVMS_User_Group_NameList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        <label for="FromDate">From date:</label>
+
+        @Html.TextBoxFor(model => model.AssignRoleModel.FromDate, new { @class = "form-control", id = "FromDate" })
+    </div>
+    <div class="col-md-3">
+        <label for="EndDate">End date:</label>
+        @Html.TextBoxFor(model => model.AssignRoleModel.EndDate, new { @class = "form-control", id = "EndDate" })
+
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button name="SaveUserRole" id="SaveUserRole" value="Save" class="btn btn-success btn-lg">Save</button>
+    </div>
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-UseRole" name="tbl-UseRole" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> RoleName</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        User Group
+        <table style="width: 100%;" id="tbl-UserGroup" name="tbl-UserGroup" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> RoleName</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+<div id="Fourth">
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.RolePermissionModel.RoleId)
+
+
+        @Html.DropDownListFor(model => model.RolePermissionModel.RoleId, Model.RolePermissionModel.RoleList, new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.RolePermissionModel.PermissionId)
+
+
+        @Html.DropDownListFor(model => model.RolePermissionModel.PermissionId, Model.RolePermissionModel.PermissionList, new { @class = "form-control" })
+    </div>
+
+
+    <div class="col-md-6">
+        <button id="RolePermission" name="RolePermission" value="Submit" class="btn btn-success btn-lg">Assing Permission</button>
+        <h2>Assing Permission to Role</h2>
+    </div>
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-RolePermission" name="tbl-RolePermission" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Permission Name</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+</div>
+<div id="Fifth">
+
+
+    <div class="col-md-6">
+        @*  @Html.TextBoxFor(model => model.Username)*@
+        <label for="ContactName">Scheme Name:</label>
+        <input class="form-control" size="100" type="text" id="SchemeName" name="SchemeName" value="" />
+
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button id="CreateScheme" name="CreateScheme" value="Submit" class="btn btn-success btn-lg">Create Scheme</button>
+    </div>
+
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-SchemeList" name="tbl-SchemeList" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Permission Name</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+</div>
+<div id="Sixth">
+
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PCVMS_Project_Model.ProjectId)
+
+
+        @Html.DropDownListFor(model => model.PCVMS_Project_Model.ProjectId, Model.PCVMS_Project_Model.ProjectList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PCVMS_Project_Model.SchemeId)
+
+
+        @Html.DropDownListFor(model => model.PCVMS_Project_Model.SchemeId, Model.PCVMS_Project_Model.SchemeList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PCVMS_Project_Model.RoleId)
+
+
+        @Html.DropDownListFor(model => model.PCVMS_Project_Model.RoleId, Model.PCVMS_Project_Model.RoleList, new { @class = "form-control" })
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button id="AssignScheme" value="Submit" class="btn btn-success btn-lg">Assign Scheme</button>
+    </div>
+
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-ProjectScheems" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Project Name</th>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Schema Name</th>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Role Name</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+</div>
+<div id="Seventh">
+
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PCVMS_Project_Model.PermissionSchemeId)
+
+
+        @Html.DropDownListFor(model => model.PCVMS_Project_Model.PermissionSchemeId, Model.PCVMS_Project_Model.SchemeList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PCVMS_Project_Model.PermissionId)
+
+
+        @Html.DropDownListFor(model => model.PCVMS_Project_Model.PermissionId, Model.PCVMS_Project_Model.PermissionList, new { @class = "form-control" })
+    </div>
+
+
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button id="SchemePermission" value="Submit" class="btn btn-success btn-lg">Assign Scheme</button>
+    </div>
+
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-ScheemPermission" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Schema Name</th>
+
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+</div>
+<div id="Eighth">
+
+
+    <div class="col-md-6">
+
+        <label for="ContactName">User Group Name:</label>
+        <input class="form-control" size="100" type="text" id="UserGroupNameEn" value="" />
+
+    </div>
+
+
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button id="CreaseUserGroup" name="button" value="Submit" class="btn btn-success btn-lg">Create User Group</button>
+    </div>
+    <div class="card-body">
+        <table style="width: 100%;" id="tbl-UserGroupName" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+
+
+                    <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Group Name</th>
+
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<div id="Nineth">
+
+
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.UserId)
+
+
+
+        @Html.DropDownListFor(model => Model.PCVMS_User_Group_Name_Model.UserId, Model.PCVMS_User_Group_Name_Model.UserList, new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PCVMS_User_Group_Name_Model.GroupId)
+
+
+
+        @Html.DropDownListFor(model => model.PCVMS_User_Group_Name_Model.GroupId, Model.PCVMS_User_Group_Name_Model.PCVMS_User_Group_NameList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        <button id="AssignGroup" name="button" value="Submit" class="btn btn-success btn-lg">Assing Group</button>
+    </div>
+
+    <table style="width: 100%;" id="tbl-UserGroupList" class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> S. No</th>
+
+
+
+                <th class="bg-deep-blue" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> Group Name</th>
+
+
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="~/AppJs/Admin.js"></script>

@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.Web.PCVMS_Project_Model
+<h1>Create User </h1>
+<form class="ui form" method="post">
+    <div class="col-md-6">
+        @*  @Html.TextBoxFor(model => model.Username)*@
+        <label for="ContactName">User Name:</label>
+        <input class="form-control" size="100" type="text" name="NameEn" value="" />
+
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button name="button" value="Submit" class="btn btn-success btn-lg">Create Project</button>
+    </div>
+</form>
+
+
+<h1>Create Scheme </h1>
+<form class="ui form" method="post" action="/Project/CreateScheme">
+    <div class="col-md-6">
+        @*  @Html.TextBoxFor(model => model.Username)*@
+        <label for="ContactName">Scheme Name:</label>
+        <input class="form-control" size="100" type="text" name="NameEn" value="" />
+
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button name="button" value="Submit" class="btn btn-success btn-lg">Create Scheme</button>
+    </div>
+</form>
+<form class="ui form" method="post" action="/Project/AssignScheme">
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.ProjectId)
+
+
+        @Html.DropDownListFor(model => model.ProjectId, Model.ProjectList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.SchemeId)
+
+
+        @Html.DropDownListFor(model => model.SchemeId, Model.SchemeList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.RoleId)
+
+
+        @Html.DropDownListFor(model => model.RoleId, Model.RoleList, new { @class = "form-control" })
+    </div>
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button name="button" value="Submit" class="btn btn-success btn-lg">Assign Scheme</button>
+    </div>
+</form>
+
+<form class="ui form" method="post" action="/Project/AssignSchemePermission">
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PermissionId)
+
+
+        @Html.DropDownListFor(model => model.PermissionId, Model.PermissionList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.PermissionSchemeId)
+
+
+        @Html.DropDownListFor(model => model.PermissionSchemeId, Model.SchemeList, new { @class = "form-control" })
+    </div>
+   
+    <div class="divider row">
+    </div>
+    <div class="col-md-6">
+        <button name="button" value="Submit" class="btn btn-success btn-lg">Assign Scheme</button>
+    </div>
+</form>
+
+

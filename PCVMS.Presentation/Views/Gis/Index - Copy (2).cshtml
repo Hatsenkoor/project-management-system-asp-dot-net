@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PCVMS.Model.Web.PCVMS_Project_Model
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- Latest compiled and minified CSS -->
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">*@
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!--IDOT Project Static Files-->
+    <link rel="stylesheet" type="text/css" href="~/css/gis_style.css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+    <script src="~/AppJs/proj4.js"></script>
+    <script src="~/AppJs/mapViewer.js"></script>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-header  bg-moi-green">
+                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                    <h1>GIS (Geographical Information System)</h1>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="map" class="map"></div>
+</body>
+</html>

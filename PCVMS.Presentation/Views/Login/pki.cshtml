@@ -1,0 +1,137 @@
+﻿@model PCVMS.Model.Web.UserModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PCVMS - Property Compute Valuation Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="MOI (Ministry of Interior)">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+   
+    <link href="~/main.87c0748b313a1dda75f5.css" rel="stylesheet">
+    <link href="~/css/Custom.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow">
+        <div class="app-container">
+            <div class="h-100">
+                <div class="h-100 no-gutters row">
+                    <div class="d-none d-lg-block col-lg-8" style="background: #C8102E;">
+                        <video style="width:100%;" id="videoplay"  src="~/images/LoadingEN1.mp4" type="video/mp4" autoplay autobuffer loop>
+                            <div class="fallback"> <p>You must have an HTML5 capable browser.</p> </div>
+                        </video>
+                    </div>
+                    <div class="h-100 d-flex bg-white justify-content-center align-items-center col-md-12 col-lg-4">
+                        <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-6">
+                            <div class="app-logo" style="margin-left:25%;"></div>
+                            <h3 class="mb-0 bg-login-green">
+                                <span class="d-block">Pesticide & Fertilizer</span>
+
+                            </h3>
+                           
+                            <div class="divider row"></div>
+                            <div>
+
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+
+                                            <div style="padding-left:0px; background: url('/assets/images/PKI-login-card.png') no-repeat; height:225px;width: 200px;"></div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+
+                                            <div class="input-group">
+                                                <input name="CardNo" id="CardNo" placeholder="ID Card number..." type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="divider row"></div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="d-flex align-items-center">
+
+                                            <button class="mb-2 mr-2 btn-icon-vertical btn-shadow btn-dashed btn btn-outline-success btn-lg btn-block"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>Login</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-6">
+                            
+                            <div class="app-logo" style="margin-left:25%;"></div>
+                            <h3 class="mb-0 bg-login-green">
+                                <span class="d-block">Management System</span>
+
+                            </h3>
+                           
+                            <div class="divider row"></div>
+                            <div>
+                                <form form" method="post" action="/Login/Login">
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+
+                                                <div style="padding-left:0px; background: url('/assets/images/PKI-login-mobile.png') no-repeat; height:225px;width: 200px;"></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                      
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+
+                                                <div class="input-group">
+                                                    <input name="MobileNo" id="MobileNo" placeholder="Mobile number..." type="text" class="form-control">
+                                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-lock btn-icon-wrapper"> </i></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="divider row"></div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <div class="d-flex align-items-center">
+
+                                                <button class="mb-2 mr-2 btn-icon-vertical btn-shadow btn-dashed btn btn-outline-success btn-lg btn-block"><i class="pe-7s-door-lock btn-icon-wrapper"> </i>Login</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/assets/scripts/main.87c0748b313a1dda75f5.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.AssemblyReference.cache
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Fertilizer Pesticide Development\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.AssemblyReference.cache
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Parents -Punjab\Pesticide Design 04162022\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.AssemblyReference.cache
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Parents -Punjab\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+C:\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Pesticide Design\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+C:\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+C:\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+C:\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Pesticide Design\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+C:\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+C:\Users\Administrator\Desktop\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb
+E:\C#\123\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.deps.json
+E:\C#\123\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.dll
+E:\C#\123\pms_saif\PCVMS.Model\bin\Debug\netcoreapp3.1\PCVMS.Model.pdb
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.AssemblyReference.cache
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfoInputs.cache
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.AssemblyInfo.cs
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.csproj.CoreCompileInputs.cache
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.dll
+E:\C#\123\pms_saif\PCVMS.Model\obj\Debug\netcoreapp3.1\PCVMS.Model.pdb

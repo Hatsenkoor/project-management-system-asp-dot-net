@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "SchemeMapping";
+}
+
+@model PCVMS.Model.Web.SchemeMappingModle
+
+    <form class="ui form" method="post" action="/SchemeMapping/Edit">
+        <div class="field">
+            @Html.DropDownListFor(model => model.SchemeName, new List<SelectListItem>
+         (Model.AllSchemes.Select(s => new SelectListItem { Selected = false, Text = s, Value = s })),
+         new { @class = "ui selection dropdown" })
+
+        </div>
+
+        <div class="field">
+            @Html.DropDownListFor(model => model.FormName, new List<SelectListItem>
+         (Model.AllForms.Select(s => new SelectListItem { Selected = false, Text = s, Value = s })),
+         new { @class = "ui selection dropdown" })
+
+        </div>
+        <button name="button" value="Submit" class="ui floated button">Map</button>
+        <h2>SchemeMapping</h2>
+        </form>

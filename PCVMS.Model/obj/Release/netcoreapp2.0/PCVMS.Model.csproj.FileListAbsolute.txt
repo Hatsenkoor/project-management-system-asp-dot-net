@@ -1,0 +1,17 @@
+D:\Softwares\Final\PCVMS.Model\bin\Release\netcoreapp2.0\PCVMS.Model.deps.json
+D:\Softwares\Final\PCVMS.Model\bin\Release\netcoreapp2.0\PCVMS.Model.dll
+D:\Softwares\Final\PCVMS.Model\bin\Release\netcoreapp2.0\PCVMS.Model.pdb
+D:\Softwares\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.csprojAssemblyReference.cache
+D:\Softwares\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.AssemblyInfoInputs.cache
+D:\Softwares\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.AssemblyInfo.cs
+D:\Softwares\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.csproj.CoreCompileInputs.cache
+D:\Softwares\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.dll
+D:\Softwares\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.pdb
+C:\Final06272020\Final\PCVMS.Model\bin\Release\netcoreapp2.0\PCVMS.Model.deps.json
+C:\Final06272020\Final\PCVMS.Model\bin\Release\netcoreapp2.0\PCVMS.Model.dll
+C:\Final06272020\Final\PCVMS.Model\bin\Release\netcoreapp2.0\PCVMS.Model.pdb
+C:\Final06272020\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.AssemblyInfoInputs.cache
+C:\Final06272020\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.AssemblyInfo.cs
+C:\Final06272020\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.dll
+C:\Final06272020\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.pdb
+C:\Final06272020\Final\PCVMS.Model\obj\Release\netcoreapp2.0\PCVMS.Model.csprojAssemblyReference.cache

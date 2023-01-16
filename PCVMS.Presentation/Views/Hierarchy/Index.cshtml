@@ -1,0 +1,53 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+}
+
+@model PCVMS.Model.Web.DashboardModel
+
+<div class="tab-content">
+    <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-header  bg-happy-green">
+                        <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                        <h1>Ministry Hierarchy</h1>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Start Implement Hierarchy Control-->
+
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/hierarchy.css" asp-append-version="true" />
+        <div class="text-center row">
+            <div class="my-menu col-md-9">
+                <ul class='my-nav mg-accordion mg-flat' id="parent_0"></ul>
+            </div>
+            <div class="col-md-3 details">
+                <div class="jumbotron">
+                    <h1 id="employeeName">Bootstrap Tutorial</h1>
+                    <p>
+                        Bootstrap is the most popular HTML, CSS, and JS framework for developing
+                        responsive, mobile-first projects on the web.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var apiUrl = '@Url.Action("GetJsonData")';
+        </script>
+        <script src="~/lib/jquery/dist/jquery.min for hierarchy.js"></script>
+        <script src="~/js/hierarchy.js"></script>
+
+        <!-- End Implement Hierarchy Control-->
+    </div>
+
+</div>

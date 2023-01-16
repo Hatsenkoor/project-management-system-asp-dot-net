@@ -1,0 +1,1111 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model LabSample.LabSample_Model
+
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div class="card-header-custom  bg-moi-green">
+            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+            Importer Agriculture Pest Sample
+        </div>
+        <div class="form-row">
+
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="RoyalDecree">
+                        Institution Type
+                    </label>
+                    <div class="input-group">
+                        <select id="ealist" class="form-control">
+                            <option>farm</option>
+                            <option>commercial institution</option>
+                            <option>plantation</option>
+                        </select>
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="ProjectName">Sample Source</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <select id="ealist" class="form-control">
+                                <option selected>select source</option>
+                                <option>local</option>
+                                <option>imported</option>
+                                <option>Local export</option>
+                            </select>
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="ProjectName">Analysis type</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <select id="ealist" class="form-control">
+                                <option selected>select type</option>
+                                <option>Agricultural sample</option>
+                                <option>Pesticide sample</option>
+                                <option>Fertilizer sample</option>
+                                <option>Agricultural pest</option>
+                                <option>other</option>
+                            </select>
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="RoyalDecree">
+                        Port name
+                    </label>
+                    <div class="input-group">
+                        <select id="ealist" class="form-control">
+                            <option>Muscat</option>
+                            <option>Dhofar</option>
+                            <option>Sohar</option>
+                        </select>
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="ProjectName">Status</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <select id="ealist" class="form-control">
+                                <option selected>select status</option>
+                                <option>submitted</option>
+                                <option>in process</option>
+                                <option>completed</option>
+                            </select>
+                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="position-relative form-group">
+                    <label for="ProjectName" style="visibility:hidden">cr</label>
+                    <div class="widget-content-left">
+                        <div class="input-group">
+                            <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-search btn-icon-wrapper"> </i>search
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <table style="width: 100%;" id="tbl-lab-sample-list" name="tbl-lab-sample-list" class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> company name</th>
+                    <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> lab name</th>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> requested date</th>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> status</th>
+                    <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div id="smartwizard-finance" class="forms-wizard-vertical">
+
+            <ul class="forms-wizard">
+                <li id="SampleGeneral">
+                    <a href="#step-1">
+                        <em><i class="header-icon pe-7s-note2 icon-gradient bg-moi-green"> </i></em><span> Collection</span>
+                    </a>
+                </li>
+                <li id="ReceivingatLab">
+                    <a href="#step-2">
+                        <em><i class="header-icon pe-7s-user icon-gradient bg-moi-green"> </i></em><span> Receiving at Lab</span>
+                    </a>
+                </li>
+                <li id="AnalysisandTesting">
+                    <a href="#step-3">
+                        <em><i class="header-icon pe-7s-user icon-gradient bg-moi-green"> </i></em><span> Analysis and Testing</span>
+                    </a>
+                </li>
+                <li id="SampleReportApproval">
+                    <a href="#step-4">
+                        <em><i class="header-icon pe-7s-user icon-gradient bg-moi-green"> </i></em><span> Sample Report Approval</span>
+                    </a>
+                </li>
+                <li id="SampleReportReport">
+                    <a href="#step-5">
+                        <em><i class="header-icon pe-7s-user icon-gradient bg-moi-green"> </i></em><span> Advance Sample Report</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="form-wizard-content">
+
+                <div id="step-1">
+                    <div id="smartwizard-sample-agriculture-imported" class="main-card mb-3 card">
+
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                            general detail
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Reference number </label>
+
+                                        <div class="input-group">
+                                            <input readonly name="ID" id="ID" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample collection date </label>
+
+                                        <div class="input-group datepicker-click-SampleCollectionDate">
+                                            <input name="txtSampleCollectionDate" id="txtSampleCollectionDate" type="text" class="form-control" data-toggle="datepicker_trigger_txtSampleCollectionDate">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">PC Number (Phyto-Sanitary Certificate) </label>
+                                        <div class="input-group">
+                                            <input name="txtPCNumber" id="txtPCNumber" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Name of Port (Sample collection)</label>
+                                        <div class="input-group">
+                                            @Html.DropDownListFor(model => model.PortMasterID, Model.PortMaster, new { @class = "form-control" })
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">Custom document number</label>
+                                        <div class="input-group">
+                                            <input name="txtCustomDocumentNumber" id="txtCustomDocumentNumber" placeholder="please enter here..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">Shipment document number</label>
+
+
+                                        <div class="input-group">
+                                            <input name="txtShipmentDocumentNumber" id="txtShipmentDocumentNumber" placeholder="please enter here..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Company Name
+                                        </label>
+                                        <div class="input-group">
+                                            <input name="txtCompanyName" id="txtCompanyName" placeholder="please enter here..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Country of origion</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.CountryOriginMasterID, Model.CountryMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Country of export</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.CountryExportMasterID, Model.CountryMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Sample type</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.SampleMasterID, Model.SampleMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Sample source</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.SampleSourceMasterID, Model.SampleSourceMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Analysis type</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.AnalysisMasterID, Model.AnalysisMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">Importer</label>
+
+                                        <div class="input-group">
+                                            <input name="txtExporter" id="txtExporter" placeholder="please enter here..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">Contact details</label>
+
+                                        <div class="input-group">
+                                            <input name="txtContactDetail" id="txtContactDetail" placeholder="please enter here..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectName">Testing Lab</label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.LabMasterID, Model.LabMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">remark</label>
+                                        <div class="input-group">
+                                            <input name="txtremark" id="txtremark" placeholder="ready only..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="d-block text-right card-footer">
+
+                            <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>clear</button>
+                            <button id="btnSaveImportExport" name="ImportedPest" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-search btn-icon-wrapper"> </i>save & submit
+                            </button>
+                        </div>
+
+                        <div class="main-card mb-3 card">
+
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                Sample details
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">Plant Type</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.PlantMasterID, Model.PlantMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">Plant Name</label>
+
+                                            <div class="input-group">
+                                                <input name="txtPlantName" id="txtPlantName" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">Area/Quantity estimated</label>
+
+                                            <div class="input-group">
+                                                <input name="txtArea" id="txtArea" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">Infected part of the plant</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.InfectedPlantPartsID, Model.InfectedPlantParts, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">Cultivation type</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.CultivationTypeMasterID, Model.CultivationTypeMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">Irrigation System</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.IrrigationSystemMasterID, Model.IrrigationSystemMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">Infection Symptoms</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.InfectionSymptomsMasterID, Model.InfectionSymptomsMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">% of infection in one plant</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.InfectionInOnePlantID, Model.InfectionInOnePlant, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectName">% of infection in FIELD</label>
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(Model => Model.InfectionInFieldID, Model.InfectionInField, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">Date of Symptoms On Set</label>
+
+                                            <div class="input-group datepicker-click-txtDateofSymptoms">
+                                                <input name="txtDateofSymptoms" id="txtDateofSymptoms" type="text" class="form-control" data-toggle="datepicker_trigger_txtDateofSymptoms">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">Age/Plant Growth Stage</label>
+
+                                            <div class="input-group">
+                                                <input name="txtPlantAge" id="txtPlantAge" type="text" class="form-control">
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="ProjectStartDate">Symptoms Description</label>
+
+                                            <div class="input-group">
+                                                <textarea name="txtSymptomsDescription" id="txtSymptomsDescription" type="text" class="form-control" rows="3"></textarea>
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="d-block text-right card-footer">
+                                <input name="txtid" id="txtid" type="text" style="visibility:hidden" />
+                                <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>clear</button>
+                                <button id="btnSaveSampleDetails" name="btnSaveSampleDetails" class="btn-icon btn-shadow btn-dashed btn btn-moi-green"><i class="pe-7s-diskette btn-icon-wrapper"> </i>save</button>
+
+                            </div>
+                        </div>
+                        <div class="main-card mb-3 card">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                sample details list
+                            </div>
+                            <div class="card-body">
+                                <table style="width: 100%;" id="tbl-sample-details" name="tbl-sample-details" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-id btn-icon-wrapper"> </i> Plant type</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-culture btn-icon-wrapper"> </i> Plant name</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-culture btn-icon-wrapper"> </i> Area</th>
+                                            <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="main-card mb-3 card" id="pnlfinalSubmission" name="pnlfinalSubmission" style="display:none;">
+                            <div class="d-block text-right card-footer">
+
+                                <button id="btnfinalSubmission" name="btnfinalSubmission" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                    <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["final_submission"]
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="step-2">
+                    <div id="smartwizard-sample-agriculture-imported" class="main-card mb-3 card">
+
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                            Sample Received Detail
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample number </label>
+
+                                        <div class="input-group">
+                                            <input readonly value="UIL.21.9919" name="txtAnalysisID" id="txtAnalysisID" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample receiving date </label>
+
+                                        <div class="input-group datepicker-click-ReceivingDate">
+                                            <input name="txtReceivingDate" id="txtReceivingDate" type="text" class="form-control" data-toggle="datepicker_trigger_txtReceivingDate">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample Collected from </label>
+
+                                        <div class="input-group">
+                                            <input name="txtCollectedFrom" id="txtCollectedFrom" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample delivered by </label>
+
+                                        <div class="input-group">
+                                            <input name="txtDeliveredBy" id="txtDeliveredBy" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Packaging type
+                                        </label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.PackagingTypeID, Model.PackagingType, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Packaging condition
+                                        </label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.PackagingConditionID, Model.PackagingCondition, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleEmail2" id="lbl_stage3_name">Sample Quantity</label>
+
+                                        <div class="input-group">
+                                            <input name="txtSampleQuantity" id="txtSampleQuantity" value="1 L" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-map-marker btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleEmail2" id="lbl_stage3_name">Sample Received Temperature</label>
+
+                                        <div class="input-group">
+                                            <input name="txtSampleTemperature" id="txtSampleTemperature" value="58.545284" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-map-marker btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="main-card mb-3 card">
+
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                            Sample description
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Sample type
+                                        </label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.SampleMasterID, Model.SampleMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Payment type
+                                        </label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.PaymentTypeID, Model.PaymentType, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Pesticide type
+                                        </label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.PesticideTypeMasterID, Model.PesticideTypeMaster, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">remark</label>
+                                        <div class="input-group">
+                                            <input name="txtRemark" id="txtRemark" placeholder="ready only..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="d-block text-right card-footer">
+
+                            <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>clear</button>
+                            <button id="btnSaveLabAnalysis" name="btnSaveLabAnalysis" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-search btn-icon-wrapper"> </i>save & submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-3">
+                    <div class="main-card mb-3 card">
+
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+
+                            Sample Result Detail
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Report number </label>
+
+                                        <div class="input-group">
+                                            <input readonly value="UILR.21.9919" name="txtReportID" id="txtReportID" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample analysis date </label>
+
+                                        <div class="input-group datepicker-click-AnalyzedDate">
+                                            <input name="txtAnalysisDate" id="txtAnalysisDate" type="text" class="form-control" data-toggle="datepicker_trigger_txtAnalyzedDate">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="ProjectStartDate">Sample analyzed by </label>
+
+                                        <div class="input-group">
+                                            <input name="txtAnalyzedBy" id="txtAnalyzedBy" type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="position-relative form-group">
+                                        <label for="RoyalDecree">
+                                            Finding
+                                        </label>
+                                        <div class="widget-content-left">
+                                            <div class="input-group">
+                                                @Html.DropDownListFor(model => model.FindingTypeID, Model.FindingType, new { @class = "form-control" })
+                                                <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleAddress">remark</label>
+                                        <div class="input-group">
+                                            <input name="txtremark" id="txtremark" placeholder="ready only..." type="text" class="form-control">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="d-block text-right card-footer">
+
+                            <button id="btnClear" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>clear</button>
+                            <button id="btnSaveLabResult" name="btnSaveLabResult" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                <i class="pe-7s-search btn-icon-wrapper"> </i>save & submit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <div class="card-header-custom  bg-moi-green">
+                                <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                Upload Testing and Analysis Report
+                            </div>
+                            <table style="width: 100%;" id="tbl-support-document" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_no"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_name"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["mandatory"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["pdf"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                        <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["uploaded"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>@Localizer["support_document_for_selected_remark"]</td>
+                                        <td class="text-center" style="color:forestgreen">*</td>
+                                        <td>
+                                            <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                                <img name="email" id="FileImage1_review" height="18" width="24">
+                                                <input type="hidden" id="Image1_review" height="18" width="24">
+                                            </div>
+                                        </td>
+                                        <td class="text-center" id='File1_lab_report_upload' name='File1_lab_report_upload'>
+                                            <div class='position-relative'> <label for="File1_lab_report"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                                            <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File1_lab_report" name="File1_lab_report" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                        </td>
+                                        <td class="text-center" id='File1_lab_report_success' name='File1_lab_report_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-4">
+                    <div class="main-card mb-3 card" id="lab-sample-cancel-approval">
+                        <div class="card-header-custom  bg-moi-green">
+                            <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                            @Localizer["sample_approval_process"]
+                        </div>
+                        <div class="no-results">
+                            <div class="main-card mb-3 card">
+                                <div class="card-header-custom  bg-moi-green">
+                                    <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+                                    @Localizer["clarification_history"]
+                                </div>
+                                <div class="card-body" readonly="readonly">
+                                    <table style="width: 100%;" id="tbl-review-history" name="tbl-review-history" class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["remark"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["status"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["user"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["date"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                                <i class="metismenu-icon lnr-hourglass" style="cursor: pointer;font-size:2.5rem;line-height: 1.75;" title="wait for approval"></i>
+                            </div>
+                            <div class="results-title">
+                                <div class="position-relative form-group">
+                                    <label for="PrpertyCardId">@Localizer["remark"]</label>
+
+                                    <div class="input-group">
+                                        <input name="txtReviewHistory" id="txtReviewHistory" type="text" class="form-control">
+                                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-notebook btn-icon-wrapper"> </i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-card mb-3 card" id="document-lab-sample-approval">
+                                <div class="card-body">
+                                    <div class="card-header-custom  bg-moi-green">
+                                        <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                                        @Localizer["supporting_document"]
+                                    </div>
+                                    <table style="width: 100%;" id="tbl-support-document" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_no"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["document_name"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["mandatory"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["pdf"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["action"]</th>
+                                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> @Localizer["uploaded"]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>@Localizer["support_document_for_selected_remark"]</td>
+                                                <td class="text-center" style="color:forestgreen">*</td>
+                                                <td>
+                                                    <div class="position-relative form-group" style="margin-top: 0.3rem;">
+                                                        <img name="email" id="FileImage1_review" height="18" width="24">
+                                                        <input type="hidden" id="Image1_review" height="18" width="24">
+                                                        <input type="hidden" id="ReviewID" height="18" width="24">
+                                                    </div>
+                                                </td>
+                                                <td class="text-center" id='File1_review_upload' name='File1_review_upload'>
+                                                    <div class='position-relative'> <label for="File1_review"><i class="metismenu-icon lnr-upload" style="cursor: pointer;margin-left: 10px;" title="upload"></i></label></div>
+                                                    <input style="cursor:pointer; display:none;" title="Choose file automatically uploaded to system" id="File1_review" name="File1_review" accept=".jpg,.jpeg" type="file" size="1" multiple onchange="uploadFiles(this);" />
+                                                </td>
+                                                <td class="text-center" id='File1_review_success' name='File1_review_success'><i class="metismenu-icon lnr-thumbs-up" style="cursor: pointer;margin-left: 10px;" title="success"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-3 mb-3"></div>
+                            <div class="text-center" id="pnlreviewapproval">
+                                <button id="btnApproveLabSample" name="btnApproveLabSample" class="btn-shadow btn-wide btn btn-moi-green btn-lg block-page-btn-example-3">@Localizer["approval"]</button>
+                                <button id="btnRFCLabSample" name="btnRFCLabSample" class="btn-shadow btn-wide btn btn-moi-gold-dark btn-lg" title="this site visit going to be cancelled">@Localizer["rfc"] (@Localizer["request_for_clarification"])</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="step-5">
+
+                    <div class="card-header-custom  bg-moi-green">
+                        <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                        Advance sample report
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="RoyalDecree">
+                                    Company name
+                                </label>
+                                <div class="input-group">
+                                    <select id="ealist" class="form-control">
+                                        <option>barka farm</option>
+                                        <option>sohar farming</option>
+                                        <option>salalah agriculture</option>
+                                    </select>
+                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="ProjectName">Analysis type</label>
+                                <div class="widget-content-left">
+                                    <div class="input-group">
+                                        <select id="ealist" class="form-control">
+                                            <option selected>select type</option>
+                                            <option>Agricultural sample</option>
+                                            <option>Pesticide sample</option>
+                                            <option>Fertilizer sample</option>
+                                            <option>Agricultural pest</option>
+                                            <option>other</option>
+                                        </select>
+                                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="RoyalDecree">
+                                    Governorate
+                                </label>
+                                <div class="input-group">
+                                    <select id="ealist" class="form-control">
+                                        <option>Muscat</option>
+                                        <option>Dhofar</option>
+                                        <option>Burami</option>
+                                    </select>
+                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-bookmarks btn-icon-wrapper"> </i></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="ProjectName">Laboratory</label>
+                                <div class="widget-content-left">
+                                    <div class="input-group">
+                                        <select id="ealist" class="form-control">
+                                            <option selected>select status</option>
+                                            <option>Atyab Laboratories</option>
+                                            <option>United Integrated Laboratories</option>
+                                        </select>
+                                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="ProjectStartDate">Date from </label>
+
+                                <div class="input-group">
+                                    <input name="disputeStartDate" id="disputeStartDate" type="text" class="form-control">
+                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="ProjectStartDate">Date To </label>
+
+                                <div class="input-group">
+                                    <input name="disputeStartDate" id="disputeStartDate" type="text" class="form-control">
+                                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-date btn-icon-wrapper"> </i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="ProjectName">Status</label>
+                                <div class="widget-content-left">
+                                    <div class="input-group">
+                                        <select id="ealist" class="form-control">
+                                            <option selected>select status</option>
+                                            <option>residual exist</option>
+                                            <option>no residual</option>
+                                        </select>
+                                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-speaker btn-icon-wrapper"> </i></span></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="ProjectName" style="visibility:hidden;">Status</label>
+                                <div class="widget-content-left">
+                                    <div class="input-group">
+                                        <button id="btnClear" style="margin-right: 10px;" name="btnClear" class="btn-icon btn-shadow btn-dashed btn btn-moi-gold"><i class="pe-7s-trash btn-icon-wrapper"> </i>clear</button>
+                                        <button id="SearchTransaction" name="SearchTransaction" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                                            <i class="pe-7s-search btn-icon-wrapper"> </i>search
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <table style="width: 100%;" id="tbl-resource-history" name="tbl-resource-history" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-album btn-icon-wrapper"> </i> sample id</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> analysis results</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> method of test</th>
+
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> results</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> unit</th>
+                                <th class="bg-moi-gold" style="text-align:center;"><i class="pe-7s-magic-wand btn-icon-wrapper"> </i> status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center text-muted">1231</td>
+                                <td class="text-center">Active ingredient(Oxymetrine)</td>
+                                <td class="text-center">UIL-SOP-TECH-003</td>
+                                <td class="text-center">12.26</td>
+                                <td class="text-center">% w/v</td>
+                                <td class="text-center">residual exist</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center text-muted">1232</td>
+                                <td class="text-center">Pesticide residue</td>
+                                <td class="text-center">FL-SOP-TECH-117</td>
+                                <td class="text-center">1.01</td>
+                                <td class="text-center">mg/kg</td>
+                                <td class="text-center">residual exist</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center text-muted">1233</td>
+                                <td class="text-center">Pesticides</td>
+                                <td class="text-center">LCMS MS &Aacute; GCMS MS</td>
+                                <td class="text-center">2.005</td>
+                                <td class="text-center">mg/kg</td>
+                                <td class="text-center">residual exist</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/js/smartwizard.js"></script>
+<script src="~/js/lab/importedpest.js"></script>

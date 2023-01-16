@@ -1,0 +1,80 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Project Ranking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model Fertilizer_Model
+
+<div class="main-card mb-3 card" id="Fertilizer_Certificate_Details">
+    <div class="card-header-custom  bg-moi-green">
+        <i class="header-icon pe-7s-pen icon-gradient bg-royal"> </i>
+        @Localizer["project_ranking_detail"]
+    </div>
+
+    <div class="form-row bg-moi-gold" id="projectype" style="margin-top: 1%;">
+        <div class="col-md-3">
+            <div class="position-relative form-group"><label for="Username" class="">@Localizer["priority"]</label></div>
+        </div>
+        <div class="col-md-3">
+            <div class="position-relative form-group"><label for="Username" class="">@Localizer["weight"]</label></div>
+        </div>
+        <div class="col-md-3">
+            <div class="position-relative form-group"><label for="Username" class="">@Localizer["activate"]</label></div>
+        </div>
+        <div class="col-md-3">
+            <div class="position-relative form-group"><label for="Username" class="">@Localizer["save"]</label></div>
+        </div>
+    </div>
+    <div class="form-row" id="projectype" style="margin-top: 1%;">
+        <div class="col-md-3">
+
+            <div class="position-relative form-group">
+
+                <div class="input-group">
+                    <select id="priority_selection" name="priority_selection" class="form-control"></select>
+                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-note btn-icon-wrapper"> </i></span></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+
+            <div class="position-relative form-group">
+
+                <div class="input-group">
+                    <select id="weight_selection" name="weight_selection" class="form-control"></select>
+                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-note btn-icon-wrapper"> </i></span></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+
+            <div class="position-relative form-group">
+
+                <div class="input-group">
+                    <select id="activation_selection" name="activation_selection" class="form-control"></select>
+                    <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-note btn-icon-wrapper"> </i></span></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="d-block text-right card-footer">
+                <button id="btnpriority" name="btnpriority" class="btn-icon btn-shadow btn-dashed btn btn-alternate block-page-btn-example-3">
+                    <i class="pe-7s-search btn-icon-wrapper"> </i>@Localizer["save"]
+                </button>
+            </div>
+        </div>
+    </div>
+   
+
+</div>
+<script src="~/js/pms/weight.js"></script>
+

@@ -1,0 +1,114 @@
+﻿@using PCVMS.Presentation.Helpers;
+@inject ICacheHelper obj;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Localizer = await obj.GetAllResource();
+
+}
+
+@model PCVMS.Model.Web.PCVMS_Project_Model
+
+    <div class="main-card mb-3 card">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                
+                    <div class="card-header  bg-moi-blue-light">
+                        <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                        <h1>@Localizer["project management module"]</h1>
+                    </div>
+              
+
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="position-relative form-group">
+                    <label for="exampleEmail2" id="lbl_stage3_name"><span class="text-danger">*</span>@Localizer["select project name"]</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.ProjectId, Model.ProjectList, "al batinah coastal road", new { @class = "form-control" })
+                        <div class="input-group-append"><span class="input-group-text"><i class="pe-7s-way btn-icon-wrapper"> </i></span></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+
+        <div id="smartwizard-project-location-geometry-view">
+            <div class="main-card mb-3 card">
+                <div class="card-header-custom  bg-moi-green">
+                    <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                    @Localizer["project locations"]
+                </div>
+                <div class="card-body">
+                   
+                    <table style="width: 100%;" id="tbl-ProjectLocation" name="tbl-ProjectLocation" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["s.no"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["governorates"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["wilayat"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["municipality"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-way btn-icon-wrapper"> </i> @Localizer["village"]</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td class="text-center">Muscat</td>
+                                <td class="text-center">Muscat</td>
+                                <td class="text-center">Bosher</td>
+                                <td class="text-center">
+                                    Al Azaiba
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="main-card mb-3 card">
+                <div class="card-header-custom  bg-moi-green">
+                    <i class="header-icon pe-7s-pen icon-gradient bg-white"> </i>
+                    @Localizer["geometry (gis coordinates of project site)"]
+                </div>
+                <div class="card-body">
+
+                    <input id="HiddenGeometryId" type="hidden" />
+                    <table style="width: 100%;" id="tbl-Geometry" name="tbl-Geometry" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["s.no"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["geometry type"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["latitude"]</th>
+                                <th class="bg-moi-gold" style="text-align:center"><i class="pe-7s-map-marker btn-icon-wrapper"> </i> @Localizer["longitude"]</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">111</td>
+                                <td class="text-center">Parcel</td>
+                                <td class="text-center">23.614328</td>
+                                <td class="text-center">58.545284</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+<script src="~/AppJs/Project.js"></script>
